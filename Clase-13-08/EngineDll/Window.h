@@ -14,6 +14,6 @@ public:
 	bool stop();
 	void pollEvents();
 	bool shouldClose();
-	void getter() {};
+	void* getter() { return window; };
 };
 

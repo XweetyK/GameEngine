@@ -1,0 +1,11 @@
+﻿  Triangle.cpp
+c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\triangle.h(9): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\triangle.h(9): error C2146: error de sintaxis: falta ';' delante del identificador 'amo'
+c:\users\administrador\desktop\gameengine\clase-13-08\external\glfw-3.2.1\include\glfw\glfw3.h(33): error C2143: error de sintaxis: falta ';' delante de '{'
+c:\users\administrador\desktop\gameengine\clase-13-08\external\glfw-3.2.1\include\glfw\glfw3.h(33): error C2447: '{': falta el encabezado de función (¿lista formal de estilo anterior?)
+c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\triangle.cpp(7): error C4430: falta el especificador de tipo; se presupone int. Nota: C++ no admite default-int
+c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\triangle.cpp(7): error C2146: error de sintaxis: falta ';' delante del identificador 'g_vertexbuffer_data'
+c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\triangle.cpp(7): error C2065: 'g_vertexbuffer_data': identificador no declarado
+c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\triangle.cpp(7): error C2059: error de sintaxis: ']'
+  Entity.cpp
+  Generando código...
