@@ -5,6 +5,7 @@ class Renderer
 {
 private:
 	Window* _window;
+	unsigned int _vertexarrayID;
 public:
 	Renderer();
 	~Renderer();
@@ -13,5 +14,8 @@ public:
 	void setClearColor(float r, float g, float b, float a);
 	void clearWindow();
 	void swapBuffer();
+	unsigned int genBuffer(float* buffer, int size);
+	void destroyBuffer(unsigned int buffer);
+	void drawBuffer(unsigned int vertexBuffer, int size);
 };
 
