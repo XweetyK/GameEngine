@@ -1,7 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "Exports.h"
-class Triangle :
+class ENGINEDLL_API Triangle :
 	public Entity
 {
 private:

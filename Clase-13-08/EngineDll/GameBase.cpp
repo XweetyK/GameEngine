@@ -37,8 +37,8 @@ void GameBase::loop()
 	do {
 		window->pollEvents();
 		res = !window->shouldClose();
-		window->pollEvents();
 		renderer->clearWindow();
+		onDraw();
 		renderer->swapBuffer();
 		onUpdate();
 	} while (res);

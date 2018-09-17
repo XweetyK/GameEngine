@@ -24,6 +24,7 @@
     <ClInclude Include="GameBase.h" />
     <ClInclude Include="Exports.h" />
     <ClInclude Include="Include.h" />
+    <ClInclude Include="Material.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Window.h" />
@@ -31,6 +32,7 @@
   <ItemGroup>
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameBase.cpp" />
+    <ClCompile Include="Material.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Window.cpp" />

@@ -1,7 +1,8 @@
 #pragma once
 #include "Include.h"
 #include "Window.h"
-class Renderer 
+#include "Exports.h"
+class ENGINEDLL_API Renderer
 {
 private:
 	Window* _window;

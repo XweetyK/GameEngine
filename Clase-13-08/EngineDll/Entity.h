@@ -1,7 +1,7 @@
 #pragma once
 #include "Exports.h"
 #include "Renderer.h"
-class Entity
+class ENGINEDLL_API Entity
 {
 protected:
 	Renderer* renderer;

@@ -24,6 +24,7 @@ void Triangle::SetVertex(float* vertex, int count) {
 void Triangle::Dispose() {
 	if (shouldDispose) {
 		renderer->destroyBuffer(_bufferId);
+		delete[] _vertex;
 		shouldDispose = false;
 	}
 }

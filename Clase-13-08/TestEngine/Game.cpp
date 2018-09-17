@@ -7,6 +7,13 @@ Game::~Game()
 {
 }
 bool Game::onStart() {
+	_triangle = new Triangle(renderer);
+	float* _vertices = new float[9]{
+		-1.0f,1.0f,0.0f,
+		1.0f,1.0f,0.0f,
+		0.0f,-1.0f,0.0f
+	};
+	_triangle->SetVertex(_vertices, 3);
 	cout << "game::start()" << endl;
 	_i = 0;
 	return true;
@@ -25,4 +32,7 @@ bool Game::onUpdate() {
 		return false;
 	}
 	return true;
+}
+void Game::onDraw() {
+	_triangle->Draw();
 }

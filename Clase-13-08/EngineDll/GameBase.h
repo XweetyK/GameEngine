@@ -6,13 +6,13 @@
 #include "Externals.h"
 class ENGINEDLL_API GameBase
 {
-private:
-	Renderer * renderer;
-	Window * window;
 protected:
 	virtual bool onStart()=0;
 	virtual bool onStop()=0;
 	virtual bool onUpdate()=0;
+	virtual void onDraw() = 0;
+	Renderer * renderer;
+	Window * window;
 public:
 	GameBase();
 	~GameBase();
