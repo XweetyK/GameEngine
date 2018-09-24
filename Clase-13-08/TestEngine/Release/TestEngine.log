@@ -1,8 +1,7 @@
-﻿  Game.cpp
-  Generating code
-  1 of 84 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
+﻿  Generando código
+  0 of 84 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  TestEngine.vcxproj -> C:\Users\Diana\Desktop\Repos\GameEngine\Clase-13-08\Release\TestEngine.exe
-  TestEngine.vcxproj -> C:\Users\Diana\Desktop\Repos\GameEngine\Clase-13-08\Release\TestEngine.pdb (Full PDB)
+    10 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  TestEngine.vcxproj -> C:\Users\Administrador\Desktop\GameEngine\Clase-13-08\Release\TestEngine.exe
+  TestEngine.vcxproj -> C:\Users\Administrador\Desktop\GameEngine\Clase-13-08\Release\TestEngine.pdb (Full PDB)

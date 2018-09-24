@@ -27,7 +27,7 @@ bool GameBase::stop()
 	onStop();
 	renderer->stop();
 	window->stop();
-	return onStop();
+	return true;
 }
 
 void GameBase::loop() 

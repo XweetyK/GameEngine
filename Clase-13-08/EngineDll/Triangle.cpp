@@ -19,7 +19,7 @@ void Triangle::SetVertex(float* vertex, int count) {
 	Dispose();
 	_vertex = vertex;
 	shouldDispose = true;
-
+	_vertexCant = count;
 	_bufferId = renderer->genBuffer(_vertex, sizeof(float)* count * 3);
 }
 void Triangle::Dispose() {

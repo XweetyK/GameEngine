@@ -11,7 +11,6 @@ Material * Material::LoadMaterial(const char* vtxShaderPath, const char* frgShad
 	unsigned int programID;
 	if (LoadShaders(vtxShaderPath, frgShaderPath)) {
 		Material* mat = new Material;
-		mat->_programID = mat->LoadShaders(vtxShaderPath, frgShaderPath);
 		return mat;
 	}
 }
@@ -106,7 +105,7 @@ bool Material::LoadShaders(const char* vertex_file_path, const char* fragment_fi
 	glDeleteShader(VertexShaderID);
 	glDeleteShader(FragmentShaderID);
 
-	
+
 	return programID;
 }
 void Material::Bind() {

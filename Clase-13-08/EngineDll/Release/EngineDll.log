@@ -1,16 +1,9 @@
-﻿  Entity.cpp
-  GameBase.cpp
-  Material.cpp
-Material.cpp(11): warning C4101: 'programID': unreferenced local variable
-Material.cpp(110): warning C4800: 'GLuint': forcing value to bool 'true' or 'false' (performance warning)
-  Renderer.cpp
-  Triangle.cpp
-  Window.cpp
-Window.cpp(37): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-     Creating library C:\Users\Diana\Desktop\Repos\GameEngine\Clase-13-08\Release\EngineDll.lib and object C:\Users\Diana\Desktop\Repos\GameEngine\Clase-13-08\Release\EngineDll.exp
-  Generating code
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\material.cpp(17): warning C4715: 'Material::LoadMaterial': not all control paths return a value
-  All 281 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  EngineDll.vcxproj -> C:\Users\Diana\Desktop\Repos\GameEngine\Clase-13-08\Release\EngineDll.dll
-  EngineDll.vcxproj -> C:\Users\Diana\Desktop\Repos\GameEngine\Clase-13-08\Release\EngineDll.pdb (Full PDB)
+﻿  Triangle.cpp
+     Creando biblioteca C:\Users\Administrador\Desktop\GameEngine\Clase-13-08\Release\EngineDll.lib y objeto C:\Users\Administrador\Desktop\GameEngine\Clase-13-08\Release\EngineDll.exp
+  Generando código
+  1 of 281 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    6 functions had inline decision re-evaluated but remain unchanged
+  Generación de código finalizada
+  EngineDll.vcxproj -> C:\Users\Administrador\Desktop\GameEngine\Clase-13-08\Release\EngineDll.dll
+  EngineDll.vcxproj -> C:\Users\Administrador\Desktop\GameEngine\Clase-13-08\Release\EngineDll.pdb (Full PDB)

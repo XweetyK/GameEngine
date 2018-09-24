@@ -37,6 +37,10 @@
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\TestEngine\SimpleFragmentShader.fragmentshader" />
+    <None Include="..\TestEngine\SimpleVertexShader.vertexshader" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5EE42ED7-954D-493C-9531-2E862AD015DC}</ProjectGuid>
     <RootNamespace>EngineDll</RootNamespace>
