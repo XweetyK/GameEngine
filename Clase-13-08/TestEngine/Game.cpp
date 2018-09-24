@@ -7,11 +7,12 @@ Game::~Game()
 {
 }
 bool Game::onStart() {
-	_triangle = new Triangle(renderer);
+	_material = Material::LoadMaterial(VERTEX_SHADER_PATH, PIXEL_SHADER_PATH);
+	_triangle = new Triangle(renderer,_material);
 	float* _vertices = new float[9]{
-		-1.0f,1.0f,0.0f,
-		1.0f,1.0f,0.0f,
-		0.0f,-1.0f,0.0f
+		0.5f,-0.5f,0.0f,
+		0.0f,0.5f,0.0f,
+		-0.5f,-0.5f,0.0f
 	};
 	_triangle->SetVertex(_vertices, 3);
 	cout << "game::start()" << endl;

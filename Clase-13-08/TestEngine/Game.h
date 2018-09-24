@@ -1,12 +1,14 @@
 #pragma once
-#include "GameBase.h"
+#include "../EngineDll/GameBase.h"
 #include <iostream>
-#include "Triangle.h"
+#include "../EngineDll/Triangle.h"
+#include "../EngineDll/Entity.h"
 using namespace std;
 class Game : public GameBase
 {
 private:
 	Triangle* _triangle;
+	Material* _material;
 protected:
 	bool onStart() override;
 	bool onStop() override;

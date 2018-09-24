@@ -4,4 +4,7 @@
 #include <fstream>
 #include <sstream>
 #include <vector>
+
+#define VERTEX_SHADER_PATH "SimpleVertexShader.vertexshader"
+#define PIXEL_SHADER_PATH "SimpleFragmentShader.fragmentshader"
 using namespace std;

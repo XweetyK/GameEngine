@@ -1,9 +1,10 @@
 #include "Triangle.h"
 
-Triangle::Triangle(Renderer* render) :Entity(renderer){
+Triangle::Triangle(Renderer* render, Material* mat) :Entity(renderer){
 	shouldDispose = false;
 	_vertex = NULL;
 	_bufferId = -1;
+	_material = mat;
 
 	_vertex = new float[9]{
 		-1.0f,-1.0f,0.0f,
@@ -30,6 +31,10 @@ void Triangle::Dispose() {
 }
 void Triangle::Draw() {
 	if (shouldDispose) {
+		
+		if (_material) {
+			_material->Bind();
+		}
 		renderer->drawBuffer(_bufferId, _vertexCant);
 	}
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "Exports.h"
+#include "Material.h"
 class ENGINEDLL_API Triangle :
 	public Entity
 {
@@ -9,8 +10,9 @@ private:
 	unsigned int _bufferId;
 	int _vertexCant;
 	bool shouldDispose;
+	Material* _material;
 public:
-	Triangle(Renderer* render);
+	Triangle(Renderer* render, Material* mat);
 	~Triangle();
 	void SetVertex(float* vertex, int vertexCant);
 	void Draw() override;
