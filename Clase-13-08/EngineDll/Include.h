@@ -6,5 +6,5 @@
 #include <vector>
 
 #define VERTEX_SHADER_PATH "SimpleVertexShader.vertexshader"
-#define PIXEL_SHADER_PATH "SimpleFragmentShader.fragmentshader"
+#define FRG_SHADER_PATH "SimpleFragmentShader.fragmentshader"
 using namespace std;

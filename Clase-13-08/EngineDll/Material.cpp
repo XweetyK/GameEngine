@@ -8,13 +8,11 @@ Material::~Material() {
 
 }
 Material * Material::LoadMaterial(const char* vtxShaderPath, const char* frgShaderPath) {
-	unsigned int programID;
-	if (LoadShaders(vtxShaderPath, frgShaderPath)) {
 		Material* mat = new Material;
+		mat->LoadShaders(vtxShaderPath, frgShaderPath);
 		return mat;
-	}
 }
-bool Material::LoadShaders(const char* vertex_file_path, const char* fragment_file_path) {
+unsigned int Material::LoadShaders(const char* vertex_file_path, const char* fragment_file_path) {
 	// Crear los shaders
 	GLuint VertexShaderID = glCreateShader(GL_VERTEX_SHADER);
 	GLuint FragmentShaderID = glCreateShader(GL_FRAGMENT_SHADER);
@@ -84,29 +82,29 @@ bool Material::LoadShaders(const char* vertex_file_path, const char* fragment_fi
 
 	// Vincular el programa por medio del ID
 	printf("Linking program\n");
-	GLuint programID = glCreateProgram();
-	glAttachShader(programID, VertexShaderID);
-	glAttachShader(programID, FragmentShaderID);
-	glLinkProgram(programID);
+	GLuint ProgramID = glCreateProgram();
+	glAttachShader(ProgramID, VertexShaderID);
+	glAttachShader(ProgramID, FragmentShaderID);
+	glLinkProgram(ProgramID);
 
 	// Revisar el programa
-	glGetProgramiv(programID, GL_LINK_STATUS, &Result);
-	glGetProgramiv(programID, GL_INFO_LOG_LENGTH, &InfoLogLength);
+	glGetProgramiv(ProgramID, GL_LINK_STATUS, &Result);
+	glGetProgramiv(ProgramID, GL_INFO_LOG_LENGTH, &InfoLogLength);
 	if (InfoLogLength > 0) {
 		std::vector<char> ProgramErrorMessage(InfoLogLength + 1);
-		glGetProgramInfoLog(programID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
+		glGetProgramInfoLog(ProgramID, InfoLogLength, NULL, &ProgramErrorMessage[0]);
 		printf("%s\n", &ProgramErrorMessage[0]);
 	}
 
 
-	glDetachShader(programID, VertexShaderID);
-	glDetachShader(programID, FragmentShaderID);
+	glDetachShader(ProgramID, VertexShaderID);
+	glDetachShader(ProgramID, FragmentShaderID);
 
 	glDeleteShader(VertexShaderID);
 	glDeleteShader(FragmentShaderID);
 
-
-	return programID;
+	this->_programID = ProgramID;
+	return ProgramID;
 }
 void Material::Bind() {
 	glUseProgram(_programID);

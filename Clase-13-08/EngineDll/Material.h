@@ -10,7 +10,7 @@ private:
 	unsigned int _matrixID;
 	
 	Material();
-	static bool LoadShaders(const char* vertex_file_path, const char* fragment_file_path);
+	unsigned int LoadShaders(const char* vertex_file_path, const char* fragment_file_path);
 
 public:
 	~Material();

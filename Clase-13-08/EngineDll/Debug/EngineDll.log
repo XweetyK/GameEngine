@@ -1,11 +1,12 @@
-﻿  Material.cpp
-c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\material.cpp(11): warning C4101: 'programID': variable local sin referencia
-c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\material.cpp(109): warning C4800: 'GLuint': forzando el valor a bool 'true' o 'false' (advertencia de rendimiento)
-  Generando código...
-c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\material.cpp(16): warning C4715: 'Material::LoadMaterial': no todas las rutas de acceso de control devuelven un valor
-  Omitiendo... (no se detectaron cambios relevantes)
+﻿  Entity.cpp
+  Generating Code...
+  Compiling...
+  Window.cpp
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\window.cpp(37): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
   Triangle.cpp
-     Creando biblioteca C:\Users\Administrador\Desktop\GameEngine\Clase-13-08\Debug\EngineDll.lib y objeto C:\Users\Administrador\Desktop\GameEngine\Clase-13-08\Debug\EngineDll.exp
-MSVCRTD.lib(initializers.obj) : warning LNK4098: la biblioteca predeterminada'msvcrt.lib' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
-  EngineDll.vcxproj -> C:\Users\Administrador\Desktop\GameEngine\Clase-13-08\Debug\EngineDll.dll
-  EngineDll.vcxproj -> C:\Users\Administrador\Desktop\GameEngine\Clase-13-08\Debug\EngineDll.pdb (Partial PDB)
+  Renderer.cpp
+  Material.cpp
+  GameBase.cpp
+  Generating Code...
+  EngineDll.vcxproj -> C:\Users\Diana\Desktop\Repos\GameEngine\Clase-13-08\Debug\EngineDll.dll
+  EngineDll.vcxproj -> C:\Users\Diana\Desktop\Repos\GameEngine\Clase-13-08\Debug\EngineDll.pdb (Partial PDB)

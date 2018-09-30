@@ -7,7 +7,7 @@ Game::~Game()
 {
 }
 bool Game::onStart() {
-	_material = Material::LoadMaterial(VERTEX_SHADER_PATH, PIXEL_SHADER_PATH);
+	_material = Material::LoadMaterial(VERTEX_SHADER_PATH, FRG_SHADER_PATH);
 	_triangle = new Triangle(renderer,_material);
 	float* _vertices = new float[9]{
 		0.5f,-0.5f,0.0f,
