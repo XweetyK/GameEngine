@@ -9,6 +9,10 @@ class Game : public GameBase
 private:
 	Triangle* _triangle;
 	Material* _material;
+	float _vel;
+	float _rot;
+	float _pos;
+	float _scale;
 protected:
 	bool onStart() override;
 	bool onStop() override;

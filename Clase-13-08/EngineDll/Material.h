@@ -1,7 +1,8 @@
 #pragma once
 #include"Exports.h"
 #include "Externals.h"
-//#include "glm\glm.hpp"
+#include<glm/glm.hpp>
+#include<glm\gtc\matrix_transform.hpp>
 #include "Include.h"
 class ENGINEDLL_API Material
 {
@@ -15,7 +16,7 @@ private:
 public:
 	~Material();
 	static Material* LoadMaterial(const char* vtxShaderPath, const char* frgShaderPath);
-	//void SetMatrixProperty(const char* name, glm::mat4& mat);
+	void SetMatrixProperty(const char* name, glm::mat4& mat);
 	void Bind();
 };
 

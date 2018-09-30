@@ -1,4 +1,5 @@
 #include "GameBase.h"
+#include "GLFW\glfw3.h"
 
 GameBase::GameBase()
 {}

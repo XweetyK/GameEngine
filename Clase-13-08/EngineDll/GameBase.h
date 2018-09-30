@@ -4,6 +4,8 @@
 #include "Window.h"
 #include "Include.h"
 #include "Externals.h"
+#include "GLFW/glfw3.h"
+
 class ENGINEDLL_API GameBase
 {
 protected:
