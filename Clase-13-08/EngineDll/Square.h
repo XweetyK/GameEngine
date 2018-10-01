@@ -1,9 +1,9 @@
 #pragma once
-#include "Entity.h"
+#include "Shape.h"
 #include "Exports.h"
 #include "Material.h"
 class ENGINEDLL_API Square :
-	public Entity
+	public Shape
 {
 private:
 	float* _vertex;

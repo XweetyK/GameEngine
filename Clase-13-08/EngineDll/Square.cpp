@@ -1,6 +1,6 @@
 #include "Square.h"
 
-Square::Square(Renderer* render, Material* mat) :Entity(render) {
+Square::Square(Renderer* render, Material* mat) : Shape(render) {
 	shouldDispose = false;
 	_vertex = NULL;
 	_bufferId = -1;

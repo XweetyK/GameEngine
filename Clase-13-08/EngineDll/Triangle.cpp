@@ -1,6 +1,6 @@
 #include "Triangle.h"
 
-Triangle::Triangle(Renderer* render, Material* mat) :Entity(render){
+Triangle::Triangle(Renderer* render, Material* mat) :Shape(render){
 	shouldDispose = false;
 	_vertex = NULL;
 	_bufferId = -1;
