@@ -15,26 +15,28 @@ Triangle::Triangle(Renderer* render, Material* mat) :Entity(renderer){
 }
 Triangle::~Triangle(){
 }
-void Triangle::SetVertex(float* vertex, int count) {
+void Triangle::SetVertex(float* vertex, int vertexCant) {
 	Dispose();
 	_vertex = vertex;
 	shouldDispose = true;
-	_vertexCant = count;
-	_bufferId = renderer->genBuffer(_vertex, sizeof(float)* count * 3);
+	_vertexCant = vertexCant;
+	_bufferId = renderer->GenBuffer(_vertex, sizeof(float)* vertexCant * 3);
 }
 void Triangle::Dispose() {
 	if (shouldDispose) {
-		renderer->destroyBuffer(_bufferId);
+		renderer->DestroyBuffer(_bufferId);
 		delete[] _vertex;
 		shouldDispose = false;
 	}
 }
 void Triangle::Draw() {
 	if (shouldDispose) {
-		
+		/*renderer->LoadIMatrix();
+		renderer->SetMMatrix(_modelMat);*/
 		if (_material) {
 			_material->Bind();
+			//_material->SetMatrixProperty(renderer->GetMVP());
 		}
-		renderer->drawBuffer(_bufferId, _vertexCant);
+		renderer->DrawBuffer(_bufferId, _vertexCant);
 	}
 }

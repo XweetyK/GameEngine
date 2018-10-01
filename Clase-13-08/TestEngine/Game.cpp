@@ -12,14 +12,24 @@ bool Game::onStart() {
 	_scale = 1;
 	_vel = 5;
 
-	_material = Material::LoadMaterial(VERTEX_SHADER_PATH, FRG_SHADER_PATH);
-	_triangle = new Triangle(renderer,_material);
+	_trgMat = Material::LoadMaterial(VERTEX_SHADER_PATH, FRG_SHADER_PATH);
+	_triangle = new Triangle(renderer,_trgMat);
 	float* _vertices = new float[9]{
-		0.5f,-0.5f,0.0f,
-		0.0f,0.5f,0.0f,
-		-0.5f,-0.5f,0.0f
+		0.8f,-0.8f,0.0f,
+		0.5f,-0.2f,0.0f,
+		0.2f,-0.8f,0.0f
 	};
 	_triangle->SetVertex(_vertices, 3);
+
+	_sqrMat = Material::LoadMaterial(VERTEX_SHADER_PATH, FRG_SHADER_PATH);
+	_square = new Square(renderer, _sqrMat);
+	float* _sqrVertices = new float[12]{
+		-0.8f, 0.8f, 0.f,
+		-0.8f, 0.2f, 0.f,
+		-0.2f, 0.8f, 0.f,
+		-0.2f, 0.2f, 0.f
+	};
+	_square->SetVertex(_sqrVertices, 4);
 	cout << "game::start()" << endl;
 	_i = 0;
 	return true;
@@ -35,7 +45,7 @@ bool Game::onUpdate() {
 	cout <<_i<< endl;
 
 	_rot += _vel;
-	_triangle->SetRot(0.0f, 0.0f, _rot);
+	_triangle->SetRot(0.0f, 0.f, _rot);
 	_triangle->SetPos(_pos, 0.0f, 0.0f);
 	_triangle->SetScale(_scale, _scale, _scale);
 	if (_i > 5) {
@@ -45,4 +55,5 @@ bool Game::onUpdate() {
 }
 void Game::onDraw() {
 	_triangle->Draw();
+	_square->Draw();
 }

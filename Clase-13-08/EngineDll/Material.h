@@ -16,7 +16,7 @@ private:
 public:
 	~Material();
 	static Material* LoadMaterial(const char* vtxShaderPath, const char* frgShaderPath);
-	void SetMatrixProperty(const char* name, glm::mat4& mat);
+	void SetMatrixProperty(glm::mat4& mat);
 	void Bind();
 };
 

@@ -15,7 +15,7 @@ bool GameBase::start(int alto, int ancho, string nombre)
 	if (!window->start(alto, ancho, nombre)) {
 		return false;
 	}
-	if (!renderer->start(window)) {
+	if (!renderer->Start(window)) {
 		return false;
 	}
 
@@ -26,7 +26,7 @@ bool GameBase::stop()
 {
 	cout << "GameBase::stop()" << endl;
 	onStop();
-	renderer->stop();
+	renderer->Stop();
 	window->stop();
 	return true;
 }
@@ -34,13 +34,13 @@ bool GameBase::stop()
 void GameBase::loop() 
 {
 	bool res = true;
-	renderer->setClearColor(0.7f, 1.0f, 0.5f, 1.0f);
+	renderer->SetClearColor(0.7f, 1.0f, 0.5f, 1.0f);
 	do {
 		window->pollEvents();
 		res = !window->shouldClose();
-		renderer->clearWindow();
+		renderer->ClearWindow();
 		onDraw();
-		renderer->swapBuffer();
+		renderer->SwapBuffer();
 		onUpdate();
 	} while (res);
 }

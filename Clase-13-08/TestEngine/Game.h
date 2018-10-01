@@ -2,13 +2,16 @@
 #include "../EngineDll/GameBase.h"
 #include <iostream>
 #include "../EngineDll/Triangle.h"
+#include "../EngineDll/Square.h"
 #include "../EngineDll/Entity.h"
 using namespace std;
 class Game : public GameBase
 {
 private:
 	Triangle* _triangle;
-	Material* _material;
+	Material* _trgMat;
+	Square* _square;
+	Material* _sqrMat;
 	float _vel;
 	float _rot;
 	float _pos;

@@ -1,36 +1,11 @@
-﻿  Triangle.cpp
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\entity.h(11): warning C4251: 'Entity::_position': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
-  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: see declaration of 'glm::vec<3,float,0>'
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\entity.h(12): warning C4251: 'Entity::_rotation': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
-  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: see declaration of 'glm::vec<3,float,0>'
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\entity.h(13): warning C4251: 'Entity::_scale': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
-  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: see declaration of 'glm::vec<3,float,0>'
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\entity.h(18): warning C4251: 'Entity::_modelMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+﻿  Renderer.cpp
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\renderer.h(13): warning C4251: 'Renderer::_modelMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
   c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\entity.h(19): warning C4251: 'Entity::_translateMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\renderer.h(14): warning C4251: 'Renderer::_viewMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
   c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\entity.h(20): warning C4251: 'Entity::_rotMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\renderer.h(15): warning C4251: 'Renderer::_projectionMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
   c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\entity.h(21): warning C4251: 'Entity::_scaleMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\renderer.h(16): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
   c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
-  Entity.cpp
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\entity.h(11): warning C4251: 'Entity::_position': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
-  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: see declaration of 'glm::vec<3,float,0>'
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\entity.h(12): warning C4251: 'Entity::_rotation': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
-  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: see declaration of 'glm::vec<3,float,0>'
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\entity.h(13): warning C4251: 'Entity::_scale': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
-  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_vec.hpp(229): note: see declaration of 'glm::vec<3,float,0>'
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\entity.h(18): warning C4251: 'Entity::_modelMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
-  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\entity.h(19): warning C4251: 'Entity::_translateMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
-  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\entity.h(20): warning C4251: 'Entity::_rotMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
-  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\entity.h(21): warning C4251: 'Entity::_scaleMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
-  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
-  Generating Code...
-  Compiling...
-  GameBase.cpp
-  Generating Code...
   EngineDll.vcxproj -> C:\Users\Diana\Desktop\Repos\GameEngine\Clase-13-08\Debug\EngineDll.dll
   EngineDll.vcxproj -> C:\Users\Diana\Desktop\Repos\GameEngine\Clase-13-08\Debug\EngineDll.pdb (Partial PDB)

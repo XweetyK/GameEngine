@@ -106,7 +106,7 @@ unsigned int Material::LoadShaders(const char* vertex_file_path, const char* fra
 	this->_programID = ProgramID;
 	return ProgramID;
 }
-void Material::SetMatrixProperty(const char* name, glm::mat4& mat)
+void Material::SetMatrixProperty(glm::mat4& mat)
 {
 	glUniformMatrix4fv(_matrixID, 1, GL_FALSE, &mat[0][0]);
 }
