@@ -1,0 +1,17 @@
+#version 330 core
+
+//input vertex data, different for all executions of this shader.
+
+layout(location = 1) in vec3 vertexColor;
+
+//Values that stay constant for the whole mesh.
+
+out vec3 fragmentColor;
+
+void main(){
+    [...]
+
+    // El color de cada vértice será interpolado
+    // para producir el color de cada fragmento
+    fragmentColor = vertexColor;
+}

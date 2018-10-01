@@ -108,6 +108,7 @@ unsigned int Material::LoadShaders(const char* vertex_file_path, const char* fra
 }
 void Material::SetMatrixProperty(glm::mat4& mat)
 {
+	_matrixID = glGetUniformLocation(_programID, "MVP");
 	glUniformMatrix4fv(_matrixID, 1, GL_FALSE, &mat[0][0]);
 }
 void Material::Bind() {

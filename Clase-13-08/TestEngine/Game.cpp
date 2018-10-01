@@ -9,8 +9,8 @@ Game::~Game()
 bool Game::onStart() {
 	_rot = 0;
 	_pos = 0;
-	_scale = 1;
-	_vel = 5;
+	_scale = 8;
+	_vel = 0.5;
 
 	_trgMat = Material::LoadMaterial(VERTEX_SHADER_PATH, FRG_SHADER_PATH);
 	_triangle = new Triangle(renderer,_trgMat);
@@ -39,15 +39,19 @@ bool Game::onStop() {
 	cout << "game::stop()" << endl;
 	return true;
 }
-bool Game::onUpdate() {
+bool Game::onUpdate(double deltaTime) {
 	cout << "game::onUpdate()";
 	_i++;
 	cout <<_i<< endl;
 
-	_rot += _vel;
+	_rot += deltaTime*_vel;
+	
 	_triangle->SetRot(0.0f, 0.f, _rot);
 	_triangle->SetPos(_pos, 0.0f, 0.0f);
 	_triangle->SetScale(_scale, _scale, _scale);
+
+	_square->SetRot(0.0f, 0.0f, _rot);
+	_square->SetScale(_scale, _scale, _scale);
 	if (_i > 5) {
 		return false;
 	}

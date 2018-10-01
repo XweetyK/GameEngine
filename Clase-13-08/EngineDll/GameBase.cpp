@@ -35,12 +35,20 @@ void GameBase::loop()
 {
 	bool res = true;
 	renderer->SetClearColor(0.7f, 1.0f, 0.5f, 1.0f);
+	double timer = 0;
+	double lastTimer = 0;
+	double dt = 0;
+	timer = lastTimer = glfwGetTime();
 	do {
+		timer = glfwGetTime();
+		dt = timer - lastTimer;
+		lastTimer = timer;
+
 		window->pollEvents();
 		res = !window->shouldClose();
 		renderer->ClearWindow();
 		onDraw();
 		renderer->SwapBuffer();
-		onUpdate();
+		onUpdate(dt);
 	} while (res);
 }

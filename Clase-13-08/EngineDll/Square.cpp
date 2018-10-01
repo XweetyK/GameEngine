@@ -1,6 +1,6 @@
 #include "Square.h"
 
-Square::Square(Renderer* render, Material* mat) :Entity(renderer) {
+Square::Square(Renderer* render, Material* mat) :Entity(render) {
 	shouldDispose = false;
 	_vertex = NULL;
 	_bufferId = -1;
@@ -18,11 +18,11 @@ Square::~Square() {
 }
 void Square::Draw() {
 	if (shouldDispose) {
-		/*renderer->LoadIMatrix();
-		renderer->SetMMatrix(_modelMat);*/
+		renderer->LoadIMatrix();
+		renderer->SetMMatrix(_modelMat);
 		if (_material) {
 			_material->Bind();
-			//_material->SetMatrixProperty(renderer->GetMVP());
+			_material->SetMatrixProperty(renderer->GetMVP());
 		}
 		renderer->DrawBuffer(_bufferId, _vertexCant);
 	}

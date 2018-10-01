@@ -19,7 +19,7 @@ private:
 protected:
 	bool onStart() override;
 	bool onStop() override;
-	bool onUpdate() override;
+	bool onUpdate(double deltaTime) override;
 	void onDraw() override;
 public:
 	Game();

@@ -27,10 +27,11 @@ public:
 	void DestroyBuffer(unsigned int buffer);
 	void DrawBuffer(unsigned int vertexBuffer, int size);
 	unsigned int GenColorBuffer(float* buffer, int size);
-	//void UpdMVP();
-	//void LoadIMatrix();
-	//void SetMMatrix(glm::mat4 mat);
-	//void MultiplyMMatrix(glm::mat4 mat);
-	//glm::mat4& GetMVP();
+	void DrawColorBuffer(unsigned int vertexBuffer, int size);
+	void UpdMVP();
+	void LoadIMatrix();
+	void SetMMatrix(glm::mat4 mat);
+	void MultiplyMMatrix(glm::mat4 mat);
+	glm::mat4& GetMVP();
 };
 
