@@ -1,10 +1,6 @@
 #include "Triangle.h"
 
-Triangle::Triangle(Renderer* render, Material* mat) :Shape(render){
-	shouldDispose = false;
-	_vertex = NULL;
-	_bufferId = -1;
-	_material = mat;
+Triangle::Triangle(Renderer* render) :Shape(render){
 
 	_vertex = new float[9]{
 		-1.0f,-1.0f,0.0f,
@@ -16,27 +12,20 @@ Triangle::Triangle(Renderer* render, Material* mat) :Shape(render){
 Triangle::~Triangle(){
 }
 void Triangle::SetVertex(float* vertex, int vertexCant) {
-	Dispose();
+	Dispose(_bufferId,_vertex);
 	_vertex = vertex;
-	shouldDispose = true;
+	_shouldDispose = true;
 	_vertexCant = vertexCant;
 	_bufferId = renderer->GenBuffer(_vertex, sizeof(float)* vertexCant * 3);
 }
-void Triangle::Dispose() {
-	if (shouldDispose) {
-		renderer->DestroyBuffer(_bufferId);
-		delete[] _vertex;
-		shouldDispose = false;
-	}
-}
 void Triangle::Draw() {
-	if (shouldDispose) {
+	if (_shouldDispose) {
 		renderer->LoadIMatrix();
 		renderer->SetMMatrix(_modelMat);
 		if (_material) {
 			_material->Bind();
 			_material->SetMatrixProperty(renderer->GetMVP());
 		}
-		renderer->DrawBuffer(_bufferId, _vertexCant);
+		renderer->DrawBuffer(_bufferId, _vertexCant,0);
 	}
 }

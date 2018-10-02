@@ -1,17 +1,13 @@
 #version 330 core
 
-//input vertex data, different for all executions of this shader.
+layout (location = 0) in vec3 vertexPosition_modelspace;
+layout (location = 1) in vec3 layout(location = 1) in vec3 vertexColor;
 
-layout(location = 1) in vec3 vertexColor;
+out vec3 vColor;
 
-//Values that stay constant for the whole mesh.
-
-out vec3 fragmentColor;
+uniform mat4 WVP;
 
 void main(){
-    [...]
-
-    // El color de cada vértice será interpolado
-    // para producir el color de cada fragmento
-    fragmentColor = vertexColor;
+	vColor = vertexColor;
+	gl_Position =  WVP * vec4(vertexPosition_modelspace, 1.0f);
 }

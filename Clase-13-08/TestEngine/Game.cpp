@@ -13,16 +13,17 @@ bool Game::onStart() {
 	_vel = 0.5;
 
 	_trgMat = Material::LoadMaterial(VERTEX_SHADER_PATH, FRG_SHADER_PATH);
-	_triangle = new Triangle(renderer,_trgMat);
+	_triangle = new Triangle(renderer);
 	float* _vertices = new float[9]{
 		0.8f,-0.8f,0.0f,
 		0.5f,-0.2f,0.0f,
 		0.2f,-0.8f,0.0f
 	};
 	_triangle->SetVertex(_vertices, 3);
+	_triangle->SetMaterial(_trgMat);
 
-	_sqrMat = Material::LoadMaterial(VERTEX_SHADER_PATH, FRG_SHADER_PATH);
-	_square = new Square(renderer, _sqrMat);
+	_sqrMat = Material::LoadMaterial(COLOR_VERTEX_SHADER_PATH, COLOR_FRG_SHADER_PATH);
+	_square = new Square(renderer);
 	float* _sqrVertices = new float[12]{
 		-0.8f, 0.8f, 0.f,
 		-0.8f, 0.2f, 0.f,
@@ -30,6 +31,7 @@ bool Game::onStart() {
 		-0.2f, 0.2f, 0.f
 	};
 	_square->SetVertex(_sqrVertices, 4);
+	_square->SetMaterial(_sqrMat);
 	cout << "game::start()" << endl;
 	_i = 0;
 	return true;
@@ -50,7 +52,7 @@ bool Game::onUpdate(double deltaTime) {
 	_triangle->SetPos(_pos, 0.0f, 0.0f);
 	_triangle->SetScale(_scale, _scale, _scale);
 
-	_square->SetRot(0.0f, 0.0f, _rot);
+	_square->SetRot(_rot, 0.0f, 0.0f);
 	_square->SetScale(_scale, _scale, _scale);
 	if (_i > 5) {
 		return false;

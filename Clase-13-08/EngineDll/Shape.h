@@ -7,13 +7,18 @@ class ENGINEDLL_API Shape :
 	public Entity
 {
 protected:
+	bool _shouldDispose;
+	Material* _material;
 	float* _vertex;
+	unsigned int _bufferId;
+	unsigned int _colorBufferId;
 	int _vertexCant;
-	unsigned int _bufferID = -1;
+	int _colorVertexCant;
+	float* _colorVertex;
 public:
 	Shape(Renderer * render);
+	void Dispose(unsigned int bufferID,float* vertex);
 	void SetMaterial(Material* mat);
-	void Dispose();
 	
 	~Shape();
 };

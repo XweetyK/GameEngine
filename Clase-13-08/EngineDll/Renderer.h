@@ -25,7 +25,7 @@ public:
 	void SwapBuffer();
 	unsigned int GenBuffer(float* buffer, int size);
 	void DestroyBuffer(unsigned int buffer);
-	void DrawBuffer(unsigned int vertexBuffer, int size);
+	void DrawBuffer(unsigned int vertexBuffer, int size, unsigned int atribId);
 	unsigned int GenColorBuffer(float* buffer, int size);
 	void DrawColorBuffer(unsigned int vertexBuffer, int size);
 	void UpdMVP();

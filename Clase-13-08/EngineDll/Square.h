@@ -5,17 +5,10 @@
 class ENGINEDLL_API Square :
 	public Shape
 {
-private:
-	float* _vertex;
-	unsigned int _bufferId;
-	int _vertexCant;
-	bool shouldDispose;
-	Material* _material;
 public:
-	Square(Renderer* render, Material* mat);
+	Square(Renderer* render);
 	~Square();
 	void Draw() override;
 	void SetVertex(float* vertex, int vertexCant);
-	void Dispose();
+	void SetColorVertex(float* vertex, int vertexCant);
 };
-
