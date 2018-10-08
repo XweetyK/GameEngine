@@ -7,10 +7,12 @@ Game::~Game()
 {
 }
 bool Game::onStart() {
-	_rot = 0;
+	_trgRot = 0;
+	_sqrRot = 0;
 	_pos = 0;
 	_scale = 8;
-	_vel = 0.5;
+	_trgVel = 0.5;
+	_sqrVel = 1.0;
 
 	_trgMat = Material::LoadMaterial(VERTEX_SHADER_PATH, FRG_SHADER_PATH);
 	_triangle = new Triangle(renderer);
@@ -46,13 +48,14 @@ bool Game::onUpdate(double deltaTime) {
 	_i++;
 	cout <<_i<< endl;
 
-	_rot += deltaTime*_vel;
+	_trgRot += deltaTime*_trgVel;
+	_sqrRot += deltaTime*_sqrVel;
 	
-	_triangle->SetRot(0.0f, 0.f, _rot);
+	_triangle->SetRot(0.0f, 0.f, _trgRot);
 	_triangle->SetPos(_pos, 0.0f, 0.0f);
 	_triangle->SetScale(_scale, _scale, _scale);
-
-	_square->SetRot(_rot, 0.0f, 0.0f);
+	_square->SetRot(_sqrRot,0.0f, _sqrRot);
+	_square->SetPos(0.0f, 0.0f, -10.0f);
 	_square->SetScale(_scale, _scale, _scale);
 	if (_i > 5) {
 		return false;

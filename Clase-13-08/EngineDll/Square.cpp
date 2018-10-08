@@ -1,4 +1,4 @@
-#include "Square.h"
+ #include "Square.h"
 
 Square::Square(Renderer* render) : Shape(render) {
 
@@ -9,10 +9,10 @@ Square::Square(Renderer* render) : Shape(render) {
 		0.5f,  0.5f, 0.f
 	};
 	_colorVertex = new float[12]{
-		0.583f,  0.771f,  0.014f,
-		0.609f,  0.115f,  0.436f,
-		0.327f,  0.483f,  0.844f,
-		0.822f,  0.569f,  0.201f,
+		0.359f,  0.583f,  0.152f,
+		0.483f,  0.596f,  0.789f,
+		0.559f,  0.861f,  0.639f,
+		0.195f,  0.548f,  0.859f
 	};
 
 	SetVertex(_vertex, 4);
@@ -29,20 +29,13 @@ void Square::Draw() {
 			_material->SetMatrixProperty(renderer->GetMVP());
 		}
 		renderer->DrawBuffer(_bufferId, _vertexCant,0);
-		renderer->DrawBuffer(_colorBufferId, _colorVertexCant, 1);
+		renderer->DrawColorBuffer(_colorBufferId, _colorVertexCant);
 	}
 }
-void Square::SetVertex(float* vertex, int vertexCant) {
-	Dispose(_bufferId, _vertex);
-	_vertex = vertex;
-	_shouldDispose = true;
-	_vertexCant = vertexCant;
-	_bufferId = renderer->GenBuffer(_vertex, sizeof(float)* vertexCant * 3);
-}
+
 void Square::SetColorVertex(float* vertex, int vertexCant) {
-	Dispose(_colorBufferId, _colorVertex);
 	_colorVertex = vertex;
 	_shouldDispose = true;
 	_colorVertexCant = vertexCant;
-	_bufferId = renderer->GenColorBuffer(_vertex, sizeof(float)* vertexCant * 3);
+	_colorBufferId = renderer->GenColorBuffer(_colorVertex, sizeof(float)* vertexCant * 3);
 }

@@ -8,12 +8,14 @@ using namespace std;
 class Game : public GameBase
 {
 private:
-	Triangle* _triangle;
+	Shape* _triangle;
 	Material* _trgMat;
-	Square* _square;
+	Shape* _square;
 	Material* _sqrMat;
-	float _vel;
-	float _rot;
+	float _trgVel;
+	float _sqrVel;
+	float _trgRot;
+	float _sqrRot;
 	float _pos;
 	float _scale;
 protected:

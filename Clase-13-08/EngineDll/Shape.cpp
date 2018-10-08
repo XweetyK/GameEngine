@@ -20,3 +20,10 @@ void Shape::Dispose(unsigned int bufferID, float* vertex){
 void Shape::SetMaterial(Material* mat) {
 	_material = mat;
 }
+void Shape::SetVertex(float* vertex, int vertexCant) {
+	Dispose(_bufferId, _vertex);
+	_vertex = vertex;
+	_shouldDispose = true;
+	_vertexCant = vertexCant;
+	_bufferId = renderer->GenBuffer(_vertex, sizeof(float)* vertexCant * 3);
+}

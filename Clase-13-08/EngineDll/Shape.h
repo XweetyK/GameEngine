@@ -19,6 +19,7 @@ public:
 	Shape(Renderer * render);
 	void Dispose(unsigned int bufferID,float* vertex);
 	void SetMaterial(Material* mat);
+	void SetVertex(float* vertex, int vertexCant);
 	
 	~Shape();
 };

@@ -11,13 +11,7 @@ Triangle::Triangle(Renderer* render) :Shape(render){
 }
 Triangle::~Triangle(){
 }
-void Triangle::SetVertex(float* vertex, int vertexCant) {
-	Dispose(_bufferId,_vertex);
-	_vertex = vertex;
-	_shouldDispose = true;
-	_vertexCant = vertexCant;
-	_bufferId = renderer->GenBuffer(_vertex, sizeof(float)* vertexCant * 3);
-}
+
 void Triangle::Draw() {
 	if (_shouldDispose) {
 		renderer->LoadIMatrix();

@@ -30,6 +30,10 @@ bool Renderer::Start(Window* window) {
 	_modelMat = glm::mat4(1.0f);
 
 	UpdMVP();
+	// Habilidad el test de profundidad
+	glEnable(GL_DEPTH_TEST);
+	// Aceptar el fragmento si está más cerca de la cámara que el fragmento anterior
+	glDepthFunc(GL_LESS);
 	return true;
 }
 
@@ -41,7 +45,8 @@ void Renderer::SetClearColor(float r, float g, float b, float a) {
 	glClearColor(r, g, b, a);
 }
 void Renderer::ClearWindow() {
-	glClear(GL_COLOR_BUFFER_BIT);
+	//glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 void Renderer::SwapBuffer() {
 	glfwSwapBuffers((GLFWwindow*)_window->getter());
