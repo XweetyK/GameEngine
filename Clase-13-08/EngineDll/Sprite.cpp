@@ -1,11 +1,25 @@
 #include "Sprite.h"
 
-Sprite::Sprite(Renderer* render) : Shape(render)
-{
+Sprite::Sprite(Renderer* render) : Shape(render){
+	//LoadBMP(TEXTURE_PATH);-->llamar al inicializar en game;
+
+	_vertex = new float[12]{
+		-0.5f, -0.5f, 0.f,
+		-0.5f,  0.5f, 0.f,
+		0.5f, -0.5f, 0.f,
+		0.5f,  0.5f, 0.f
+	};
+	SetVertex(_vertex, 4);
+
+	_spriteVertex = new float[8]{
+		0.0f, 0.0f,
+		0.0f, 1.0f,
+		1.0f, 0.0f,
+		1.0f, 1.0f
+	};
 }
 
-Sprite::~Sprite()
-{
+Sprite::~Sprite(){
 }
 unsigned int Sprite::LoadBMP(const char * BMPfile) {
 
@@ -37,5 +51,22 @@ unsigned int Sprite::LoadBMP(const char * BMPfile) {
 
 	//Todo está en memoria ahora, así que podemos cerrar el archivo
 	fclose(file);
-	return 1;
+}
+void Sprite::Draw() {
+	if (_shouldDispose) {
+		renderer->LoadIMatrix();
+		renderer->SetMMatrix(_modelMat);
+		if (_material) {
+			_material->Bind();
+			_material->SetMatrixProperty(renderer->GetMVP());
+			_material->BindTexture(_spriteBufferId);
+		}
+		renderer->DrawBuffer(_bufferId, _vertexCant, 0, GL_TRIANGLE_STRIP);
+	}
+}
+void Sprite::SetTextureVertex(float* vertex, int vertexCant) {
+	_spriteVertex = vertex;
+	_shouldDispose = true;
+	_spriteVertexCant = vertexCant;
+	_spriteBufferId = renderer->GenTextureBuffer(width, height, data);
 }

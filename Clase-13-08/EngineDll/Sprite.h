@@ -2,6 +2,7 @@
 #include "Shape.h"
 #include "Exports.h"
 #include "Include.h"
+
 class ENGINEDLL_API Sprite :
 	public Shape
 {
@@ -19,6 +20,7 @@ public:
 	Sprite(Renderer* render);
 	~Sprite();
 	unsigned int LoadBMP(const char * BMPfile);
-	//void Draw() override;
+	void Draw() override;
+	void SetTextureVertex(float* vertex, int vertexCant);
 };
 

@@ -111,6 +111,14 @@ void Material::SetMatrixProperty(glm::mat4& mat)
 	_matrixID = glGetUniformLocation(_programID, "MVP");
 	glUniformMatrix4fv(_matrixID, 1, GL_FALSE, &mat[0][0]);
 }
+void Material::BindTexture(unsigned int texId) {
+	// Bind our texture in Texture Unit 0
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, texId);
+	
+	GLuint TextureID  = glGetUniformLocation(_programID, "myTextureSampler");
+	glUniform1i(TextureID, 0);
+}
 void Material::Bind() {
 	glUseProgram(_programID);
 }

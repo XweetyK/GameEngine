@@ -9,4 +9,8 @@
 #define FRG_SHADER_PATH "SimpleFragmentShader.fragmentshader"
 #define COLOR_VERTEX_SHADER_PATH "ColorVertexShader.cvs"
 #define COLOR_FRG_SHADER_PATH "ColorFragmentShader.cfs"
+#define TEXTURE_FRG_SHADER_PATH "TextureFragmentShader.tfs"
+#define TEXTURE_VERTEX_SHADER_PATH "TextureVertexShader.tvs"
+
+#define TEXTURE_SPRITE_PATH "sprite.bmp"
 using namespace std;

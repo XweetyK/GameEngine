@@ -28,6 +28,8 @@ public:
 	void DrawBuffer(unsigned int vertexBuffer, int size, unsigned int atribId, unsigned int drawStyle);
 	unsigned int GenColorBuffer(float* buffer, int size);
 	void DrawColorBuffer(unsigned int vertexBuffer, int size);
+	unsigned int GenTextureBuffer(unsigned int width, unsigned int height, unsigned char * data);
+	//void DrawTextureBuffer(unsigned int vertexBuffer, int size);
 	void UpdMVP();
 	void LoadIMatrix();
 	void SetMMatrix(glm::mat4 mat);

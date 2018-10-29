@@ -3,6 +3,7 @@
 #include <iostream>
 #include "../EngineDll/Triangle.h"
 #include "../EngineDll/Square.h"
+#include "../EngineDll/Sprite.h"
 #include "../EngineDll/Entity.h"
 using namespace std;
 class Game : public GameBase
@@ -12,8 +13,8 @@ private:
 	Material* _trgMat;
 	Shape* _square;
 	Material* _sqrMat;
-	Shape* _squareTexture;
-	Material* _sqrTxtMat;
+	Sprite* _sprite;
+	Material* _sprtTexture;
 	float _trgVel;
 	float _sqrVel;
 	float _trgRot;

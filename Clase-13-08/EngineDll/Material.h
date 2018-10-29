@@ -18,5 +18,6 @@ public:
 	static Material* LoadMaterial(const char* vtxShaderPath, const char* frgShaderPath);
 	void SetMatrixProperty(glm::mat4& mat);
 	void Bind();
+	void BindTexture(unsigned int texId);
 };
 

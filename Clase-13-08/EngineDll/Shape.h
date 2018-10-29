@@ -13,14 +13,20 @@ class ENGINEDLL_API Shape :
 protected:
 	bool _shouldDispose;
 	Material* _material;
+
+	//Shape---------------------------
 	float* _vertex;
-	float* _colorVertex;
-	float* _spriteVertex;
 	unsigned int _bufferId;
-	unsigned int _colorBufferId;
-	unsigned int _spriteBufferId;
 	int _vertexCant;
+
+	//Color---------------------------
+	float* _colorVertex;
+	unsigned int _colorBufferId;
 	int _colorVertexCant;
+
+	//Sprite--------------------------
+	float* _spriteVertex;
+	unsigned int _spriteBufferId;
 	int _spriteVertexCant;
 	
 	
