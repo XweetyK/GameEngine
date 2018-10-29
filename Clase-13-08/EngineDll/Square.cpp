@@ -28,7 +28,7 @@ void Square::Draw() {
 			_material->Bind();
 			_material->SetMatrixProperty(renderer->GetMVP());
 		}
-		renderer->DrawBuffer(_bufferId, _vertexCant,0);
+		renderer->DrawBuffer(_bufferId, _vertexCant,0, GL_TRIANGLE_STRIP);
 		renderer->DrawColorBuffer(_colorBufferId, _colorVertexCant);
 	}
 }

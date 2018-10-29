@@ -66,7 +66,7 @@ unsigned int Renderer::GenBuffer(float* buffer, int size) {
 void Renderer::DestroyBuffer(unsigned int buffer) {
 	
 }
-void Renderer::DrawBuffer(unsigned int vertexBuffer, int size, unsigned int atribId) {
+void Renderer::DrawBuffer(unsigned int vertexBuffer, int size, unsigned int atribId, unsigned int drawStyle) {
 	// 1rst attribute buffer : vértices
 	glEnableVertexAttribArray(atribId);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
@@ -79,7 +79,7 @@ void Renderer::DrawBuffer(unsigned int vertexBuffer, int size, unsigned int atri
 		(void*)0            // desfase del buffer
 	);
 	// Dibujar el triángulo !
-	glDrawArrays(GL_TRIANGLE_STRIP, 0, size); // Empezar desde el vértice 0S; 3 vértices en total -> 1 triángulo
+	glDrawArrays(drawStyle, 0, size); // Empezar desde el vértice 0S; 3 vértices en total -> 1 triángulo
 	glDisableVertexAttribArray(atribId);
 }
 unsigned int Renderer::GenColorBuffer(float* buffer, int size) {

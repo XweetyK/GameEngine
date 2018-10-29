@@ -9,5 +9,4 @@ public:
 	Triangle(Renderer* render);
 	~Triangle();
 	void Draw() override;
-
 };

@@ -12,6 +12,8 @@ private:
 	Material* _trgMat;
 	Shape* _square;
 	Material* _sqrMat;
+	Shape* _squareTexture;
+	Material* _sqrTxtMat;
 	float _trgVel;
 	float _sqrVel;
 	float _trgRot;

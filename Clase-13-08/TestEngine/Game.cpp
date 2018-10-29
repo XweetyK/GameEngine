@@ -34,6 +34,17 @@ bool Game::onStart() {
 	};
 	_square->SetVertex(_sqrVertices, 4);
 	_square->SetMaterial(_sqrMat);
+
+	_sqrTxtMat = Material::LoadMaterial(COLOR_VERTEX_SHADER_PATH, COLOR_FRG_SHADER_PATH);
+	_squareTexture = new Square(renderer);
+	float* _sqrTxtVertices = new float[12]{
+		-0.8f, 0.8f, 0.f,
+		-0.8f, 0.2f, 0.f,
+		-0.2f, 0.8f, 0.f,
+		-0.2f, 0.2f, 0.f
+	};
+	_squareTexture->SetVertex(_sqrTxtVertices,4);
+	_squareTexture->SetMaterial(_sqrTxtMat);
 	cout << "game::start()" << endl;
 	_i = 0;
 	return true;
@@ -57,6 +68,7 @@ bool Game::onUpdate(double deltaTime) {
 	_square->SetRot(_sqrRot,0.0f, _sqrRot);
 	_square->SetPos(0.0f, 0.0f, -10.0f);
 	_square->SetScale(_scale, _scale, _scale);
+	_squareTexture->SetScale(_scale, _scale, _scale);
 	if (_i > 5) {
 		return false;
 	}
@@ -65,4 +77,5 @@ bool Game::onUpdate(double deltaTime) {
 void Game::onDraw() {
 	_triangle->Draw();
 	_square->Draw();
+	_squareTexture->Draw();
 }
