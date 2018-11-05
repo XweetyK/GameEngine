@@ -37,7 +37,7 @@ bool Game::onStart() {
 
 	_sprtTexture = Material::LoadMaterial(TEXTURE_VERTEX_SHADER_PATH, TEXTURE_FRG_SHADER_PATH);
 	_sprite = new Sprite(renderer);
-	_sprite->LoadBMP(TEXTURE_SPRITE_PATH);
+	_sprite->LoadBMP(TEXTURE_UV_PATH);
 	float* _sqrTxtVertices = new float[8]{
 		0.0f, 0.0f,
 		0.0f, 0.0f,

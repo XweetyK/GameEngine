@@ -20,6 +20,8 @@ void Triangle::Draw() {
 			_material->Bind();
 			_material->SetMatrixProperty(renderer->GetMVP());
 		}
-		renderer->DrawBuffer(_bufferId, _vertexCant,0, GL_TRIANGLES);
+		renderer->BindBuffer(_bufferId, 0, 3);
+		renderer->DrawBuffer(_vertexCant, GL_TRIANGLE_STRIP);
+		renderer->DisableArray(0);
 	}
 }

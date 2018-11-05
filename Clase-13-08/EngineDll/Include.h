@@ -13,4 +13,5 @@
 #define TEXTURE_VERTEX_SHADER_PATH "TextureVertexShader.tvs"
 
 #define TEXTURE_SPRITE_PATH "sprite.bmp"
+#define TEXTURE_UV_PATH "uvtemplate.bmp"
 using namespace std;

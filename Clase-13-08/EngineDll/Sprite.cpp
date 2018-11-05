@@ -59,14 +59,19 @@ void Sprite::Draw() {
 		if (_material) {
 			_material->Bind();
 			_material->SetMatrixProperty(renderer->GetMVP());
-			_material->BindTexture(_spriteBufferId);
+			_material->BindTexture(_textureBufferId);
 		}
-		renderer->DrawBuffer(_bufferId, _vertexCant, 0, GL_TRIANGLE_STRIP);
+		renderer->BindBuffer(_bufferId, 0, 3);
+		renderer->BindBuffer(_UVBufferId, 1, 2);
+		renderer->DrawBuffer(_vertexCant, GL_TRIANGLE_STRIP);
+		renderer->DisableArray(0);
+		renderer->DisableArray(1);
 	}
 }
 void Sprite::SetTextureVertex(float* vertex, int vertexCant) {
 	_spriteVertex = vertex;
 	_shouldDispose = true;
 	_spriteVertexCant = vertexCant;
-	_spriteBufferId = renderer->GenTextureBuffer(width, height, data);
+	_textureBufferId = renderer->GenTextureBuffer(width, height, data);
+	_UVBufferId = renderer->GenUVBuffer(_vertex, sizeof(float)* vertexCant * 2);
 }

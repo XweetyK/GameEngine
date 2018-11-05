@@ -28,8 +28,11 @@ void Square::Draw() {
 			_material->Bind();
 			_material->SetMatrixProperty(renderer->GetMVP());
 		}
-		renderer->DrawBuffer(_bufferId, _vertexCant,0, GL_TRIANGLE_STRIP);
-		renderer->DrawColorBuffer(_colorBufferId, _colorVertexCant);
+		renderer->BindBuffer(_bufferId, 0, 3);
+		renderer->BindBuffer(_colorBufferId, 1, 3);
+		renderer->DrawBuffer(_vertexCant, GL_TRIANGLE_STRIP);
+		renderer->DisableArray(0);
+		renderer->DisableArray(1);
 	}
 }
 

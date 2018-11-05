@@ -63,23 +63,34 @@ unsigned int Renderer::GenBuffer(float* buffer, int size) {
 
 	return vertexbuffer;
 }
+unsigned int Renderer::GenUVBuffer(float* buffer, int size) {
+	GLuint uvbuffer;
+	glGenBuffers(1, &uvbuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, uvbuffer);
+	glBufferData(GL_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
+	return uvbuffer;
+}
 void Renderer::DestroyBuffer(unsigned int buffer) {
 	
 }
-void Renderer::DrawBuffer(unsigned int vertexBuffer, int size, unsigned int atribId, unsigned int drawStyle) {
+void Renderer::BindBuffer(unsigned int vertexBuffer, unsigned int atribId, unsigned int atribSize) {
 	// 1rst attribute buffer : vértices
 	glEnableVertexAttribArray(atribId);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
 	glVertexAttribPointer(
-		0,                  // atributo 0. No hay razón particular para el 0, pero debe corresponder en el shader.
-		3,                  // tamaño
+		atribId,                  // atributo 0. No hay razón particular para el 0, pero debe corresponder en el shader.
+		atribSize,                  // tamaño
 		GL_FLOAT,           // tipo
 		GL_FALSE,           // normalizado?
 		0,                    // Paso
 		(void*)0            // desfase del buffer
 	);
+}
+void Renderer::DrawBuffer(int size, unsigned int drawStyle) {
 	// Dibujar el triángulo !
 	glDrawArrays(drawStyle, 0, size); // Empezar desde el vértice 0S; 3 vértices en total -> 1 triángulo
+}
+void Renderer::DisableArray(unsigned int atribId) {
 	glDisableVertexAttribArray(atribId);
 }
 unsigned int Renderer::GenColorBuffer(float* buffer, int size) {
@@ -89,7 +100,7 @@ unsigned int Renderer::GenColorBuffer(float* buffer, int size) {
 	glBufferData(GL_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
 	return colorbuffer;
 }
-void Renderer::DrawColorBuffer(unsigned int colorbuffer, int size) {
+/*void Renderer::DrawColorBuffer(unsigned int colorbuffer) {
 	glEnableVertexAttribArray(1);
 	glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
 	glVertexAttribPointer(
@@ -100,7 +111,7 @@ void Renderer::DrawColorBuffer(unsigned int colorbuffer, int size) {
 		0,                                // corrimiento
 		(void*)0                          // corrimiento de buffer
 	);
-}
+}*/
 unsigned int Renderer::GenTextureBuffer(unsigned int width, unsigned int height, unsigned char * data) {
 // Creamos una textura OpenGL
 GLuint textureID;

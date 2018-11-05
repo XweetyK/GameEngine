@@ -26,7 +26,8 @@ protected:
 
 	//Sprite--------------------------
 	float* _spriteVertex;
-	unsigned int _spriteBufferId;
+	unsigned int _textureBufferId;
+	unsigned int _UVBufferId;
 	int _spriteVertexCant;
 	
 	
