@@ -5,8 +5,8 @@
 #include <sstream>
 #include <vector>
 
-#define VERTEX_SHADER_PATH "SimpleVertexShader.vertexshader"
-#define FRG_SHADER_PATH "SimpleFragmentShader.fragmentshader"
+#define VERTEX_SHADER_PATH "SimpleVertexShader.svs"
+#define FRG_SHADER_PATH "SimpleFragmentShader.sfs"
 #define COLOR_VERTEX_SHADER_PATH "ColorVertexShader.cvs"
 #define COLOR_FRG_SHADER_PATH "ColorFragmentShader.cfs"
 #define TEXTURE_FRG_SHADER_PATH "TextureFragmentShader.tfs"

@@ -51,9 +51,6 @@
     <ClInclude Include="Sprite.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="TextureImporter.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameBase.cpp">
@@ -83,9 +80,6 @@
     <ClCompile Include="Sprite.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="TextureImporter.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\TestEngine\SimpleFragmentShader.fragmentshader">
@@ -98,6 +92,12 @@
       <Filter>Archivos de recursos</Filter>
     </None>
     <None Include="..\TestEngine\ColorVertexShader.cvs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="..\TestEngine\TextureFragmentShader.tfs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="..\TestEngine\TextureVertexShader.tvs">
       <Filter>Archivos de recursos</Filter>
     </None>
   </ItemGroup>

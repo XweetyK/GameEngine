@@ -29,7 +29,6 @@
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Square.h" />
-    <ClInclude Include="TextureImporter.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Window.h" />
   </ItemGroup>
@@ -41,7 +40,6 @@
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Square.cpp" />
-    <ClCompile Include="TextureImporter.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Window.cpp" />
   </ItemGroup>
@@ -50,6 +48,8 @@
     <None Include="..\TestEngine\ColorVertexShader.cvs" />
     <None Include="..\TestEngine\SimpleFragmentShader.fragmentshader" />
     <None Include="..\TestEngine\SimpleVertexShader.vertexshader" />
+    <None Include="..\TestEngine\TextureFragmentShader.tfs" />
+    <None Include="..\TestEngine\TextureVertexShader.tvs" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5EE42ED7-954D-493C-9531-2E862AD015DC}</ProjectGuid>

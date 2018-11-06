@@ -17,6 +17,7 @@ Sprite::Sprite(Renderer* render) : Shape(render){
 		1.0f, 0.0f,
 		1.0f, 1.0f
 	};
+
 }
 
 Sprite::~Sprite(){
@@ -51,6 +52,8 @@ unsigned int Sprite::LoadBMP(const char * BMPfile) {
 
 	//Todo está en memoria ahora, así que podemos cerrar el archivo
 	fclose(file);
+
+	SetTextureVertex(_spriteVertex, 4);
 }
 void Sprite::Draw() {
 	if (_shouldDispose) {
@@ -73,5 +76,5 @@ void Sprite::SetTextureVertex(float* vertex, int vertexCant) {
 	_shouldDispose = true;
 	_spriteVertexCant = vertexCant;
 	_textureBufferId = renderer->GenTextureBuffer(width, height, data);
-	_UVBufferId = renderer->GenUVBuffer(_vertex, sizeof(float)* vertexCant * 2);
+	_UVBufferId = renderer->GenUVBuffer(_spriteVertex, sizeof(float)* vertexCant * 2);
 }
