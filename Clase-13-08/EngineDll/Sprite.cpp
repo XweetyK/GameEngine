@@ -21,6 +21,8 @@ Sprite::Sprite(Renderer* render) : Shape(render){
 }
 
 Sprite::~Sprite(){
+	delete _vertex;
+	delete _spriteVertex;
 }
 unsigned int Sprite::LoadBMP(const char * BMPfile) {
 
@@ -77,4 +79,13 @@ void Sprite::SetTextureVertex(float* vertex, int vertexCant) {
 	_spriteVertexCant = vertexCant;
 	_textureBufferId = renderer->GenTextureBuffer(width, height, data);
 	_UVBufferId = renderer->GenUVBuffer(_spriteVertex, sizeof(float)* vertexCant * 2);
+}
+void Sprite::SetFrames(int frameWidth, int frameHeight, int textureWidth, int textureHeight){
+	int columns = textureHeight / frameHeight;
+	int rows = textureWidth / frameWidth;
+	float
+	int framesCant = rows * columns;
+	for (int i = 0; i < framesCant; i++){
+		_frame[i].SetVertex();
+	}
 }

@@ -2,7 +2,7 @@
 class BoxCollider
 {
 public:
-	BoxCollider();
+	BoxCollider(float width, float height);
 	~BoxCollider();
 };
 

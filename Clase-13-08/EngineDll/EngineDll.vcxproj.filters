@@ -51,9 +51,6 @@
     <ClInclude Include="Sprite.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Avatar.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="BoxCollider.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -87,9 +84,6 @@
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="Sprite.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
-    <ClCompile Include="Avatar.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="BoxCollider.cpp">

@@ -2,7 +2,7 @@
 
 
 
-BoxCollider::BoxCollider()
+BoxCollider::BoxCollider(float width, float height)
 {
 }
 

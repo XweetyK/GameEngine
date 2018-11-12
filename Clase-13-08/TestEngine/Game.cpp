@@ -55,6 +55,9 @@ bool Game::onStart() {
 
 bool Game::onStop() {
 	cout << "game::stop()" << endl;
+	delete _sprite;
+	delete _square;
+	delete _triangle;
 	return true;
 }
 bool Game::onUpdate(double deltaTime) {
