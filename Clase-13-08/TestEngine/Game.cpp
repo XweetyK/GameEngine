@@ -37,7 +37,14 @@ bool Game::onStart() {
 
 	_sprtTexture = Material::LoadMaterial(TEXTURE_VERTEX_SHADER_PATH, TEXTURE_FRG_SHADER_PATH);
 	_sprite = new Sprite(renderer);
-	_sprite->LoadBMP(TEXTURE_UV_PATH);
+	_sprite->LoadBMP(TEXTURE_SPRITE_PATH);
+	float* _spriteVertex = new float[12]{
+		-0.5f, -0.5f, 0.f,
+		-0.5f, 0.5f, 0.f,
+		0.5f, -0.5f, 0.f,
+		0.5f, 0.5f, 0.f
+	};
+	_sprite->SetVertex(_spriteVertex, 4);
 	
 	
 	_sprite->SetMaterial(_sprtTexture);
