@@ -12,12 +12,11 @@ Sprite::Sprite(Renderer* render) : Shape(render){
 	SetVertex(_vertex, 4);
 
 	_spriteVertex = new float[8]{
-		0.0f, 0.0f,
-		0.0f, 1.0f,
-		1.0f, 0.0f,
-		1.0f, 1.0f
+		0.0f, 0.0f,	//corner left down
+		0.0f, 1.0f,	//corner left up
+		1.0f, 0.0f,	//corner right down
+		1.0f, 1.0f	//corner right up
 	};
-
 }
 
 Sprite::~Sprite(){
@@ -80,12 +79,25 @@ void Sprite::SetTextureVertex(float* vertex, int vertexCant) {
 	_textureBufferId = renderer->GenTextureBuffer(width, height, data);
 	_UVBufferId = renderer->GenUVBuffer(_spriteVertex, sizeof(float)* vertexCant * 2);
 }
-void Sprite::SetFrames(int frameWidth, int frameHeight, int textureWidth, int textureHeight){
+void Sprite::MakeFrames(int frameWidth, int frameHeight, int textureWidth, int textureHeight){
 	int columns = textureHeight / frameHeight;
 	int rows = textureWidth / frameWidth;
-	float
+	float uvHeight = (float)frameHeight / (float)textureHeight;
+	float uvWidth =  (float)frameWidth / (float)textureWidth;
 	int framesCant = rows * columns;
-	for (int i = 0; i < framesCant; i++){
-		_frame[i].SetVertex();
+	int cont = 0;
+
+	_frame = new Frame[framesCant];
+	for (int j = 0; j < rows; j++){
+		for (int i = 0; i < columns; i++){
+			_frame[cont].SetVertex(uvWidth*i, uvWidth*(i + 1), 1.0f-( uvHeight*j), 1.0f - (uvHeight*(j + 1)));
+			if (cont != framesCant) {
+				cont++;
+			}
+		}
 	}
+}
+void Sprite::SetFrame(int frame) {
+	_spriteVertex = _frame[frame]._vertexUV;
+	_UVBufferId = renderer->GenUVBuffer(_spriteVertex, sizeof(float)* 4 * 2);
 }

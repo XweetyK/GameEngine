@@ -94,22 +94,22 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\TestEngine\SimpleFragmentShader.fragmentshader">
+    <None Include="..\TestEngine\Shaders\TextureFragmentShader.tfs">
       <Filter>Archivos de recursos</Filter>
     </None>
-    <None Include="..\TestEngine\SimpleVertexShader.vertexshader">
+    <None Include="..\TestEngine\Shaders\TextureVertexShader.tvs">
       <Filter>Archivos de recursos</Filter>
     </None>
-    <None Include="..\TestEngine\ColorFragmentShader.cfs">
+    <None Include="..\TestEngine\Shaders\ColorFragmentShader.cfs">
       <Filter>Archivos de recursos</Filter>
     </None>
-    <None Include="..\TestEngine\ColorVertexShader.cvs">
+    <None Include="..\TestEngine\Shaders\ColorVertexShader.cvs">
       <Filter>Archivos de recursos</Filter>
     </None>
-    <None Include="..\TestEngine\TextureFragmentShader.tfs">
+    <None Include="..\TestEngine\Shaders\SimpleFragmentShader.sfs">
       <Filter>Archivos de recursos</Filter>
     </None>
-    <None Include="..\TestEngine\TextureVertexShader.tvs">
+    <None Include="..\TestEngine\Shaders\SimpleVertexShader.svs">
       <Filter>Archivos de recursos</Filter>
     </None>
   </ItemGroup>

@@ -1,0 +1,13 @@
+#version 330 core
+
+// Input data
+in vec2 UV;
+// Ouput data
+out vec4 color;
+uniform sampler2D myTextureSampler;
+
+void main()
+{
+	// Color de Salida = color de la textura en las coordenadas UV específicadas
+	color = texture(myTextureSampler, UV).rgba;
+}

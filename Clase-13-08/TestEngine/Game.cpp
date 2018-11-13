@@ -45,11 +45,30 @@ bool Game::onStart() {
 		0.5f, 0.5f, 0.f
 	};
 	_sprite->SetVertex(_spriteVertex, 4);
-	
-	
 	_sprite->SetMaterial(_sprtTexture);
+
+	_crisTexture = Material::LoadMaterial(TEXTURE_VERTEX_SHADER_PATH, TEXTURE_FRG_SHADER_PATH);
+	_cris = new Sprite(renderer);
+	_cris->MakeFrames(128, 128, 1024, 1024);
+	
+	_cris->LoadBMP(TEXTURE_CRISANIM_PATH);
+	_cris->SetMaterial(_crisTexture);
+	_cris->SetFrame(22);
+	
 	cout << "game::start()" << endl;
 	_i = 0;
+
+	_triangle->SetPos(_pos, 0.0f, 0.0f);
+	_triangle->SetScale(_scale, _scale, _scale);
+
+	_square->SetPos(0.0f, 0.0f, -10.0f);
+	_square->SetScale(_scale, _scale, _scale);
+
+	_sprite->SetPos(0.0f, 0.0f, -9.0f);
+	_sprite->SetScale(_scale, _scale, _scale);
+
+	_cris->SetScale(_scale, _scale, _scale);
+
 	return true;
 }
 
@@ -58,6 +77,7 @@ bool Game::onStop() {
 	delete _sprite;
 	delete _square;
 	delete _triangle;
+	delete _cris;
 	return true;
 }
 bool Game::onUpdate(double deltaTime) {
@@ -69,12 +89,8 @@ bool Game::onUpdate(double deltaTime) {
 	_sqrRot += deltaTime*_sqrVel;
 	
 	_triangle->SetRot(0.0f, 0.f, _trgRot);
-	_triangle->SetPos(_pos, 0.0f, 0.0f);
-	_triangle->SetScale(_scale, _scale, _scale);
 	_square->SetRot(_sqrRot,0.0f, _sqrRot);
-	_square->SetPos(0.0f, 0.0f, -10.0f);
-	_square->SetScale(_scale, _scale, _scale);
-	_sprite->SetScale(_scale, _scale, _scale);
+	
 	if (_i > 5) {
 		return false;
 	}
@@ -84,4 +100,5 @@ void Game::onDraw() {
 	_triangle->Draw();
 	_square->Draw();
 	_sprite->Draw();
+	_cris->Draw();
 }
