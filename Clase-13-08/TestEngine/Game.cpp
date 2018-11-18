@@ -51,9 +51,19 @@ bool Game::onStart() {
 	_cris = new Sprite(renderer);
 	_cris->MakeFrames(128, 128, 1024, 1024);
 	
-	_cris->LoadBMP(TEXTURE_CRISANIM_PATH);
+	_cris->LoadBMP(TEXTURE_A_CRISANIM_PATH);
 	_cris->SetMaterial(_crisTexture);
 	_cris->SetFrame(22);
+	_animator = new Animator(_cris);
+
+	int* _frames = new int[13]{
+		17,18,19,
+		20,21,22,
+		1,10,11,
+		12,13,14,
+		15
+	};
+	_animator->SetAnimation(_frames,13, 10);
 	
 	cout << "game::start()" << endl;
 	_i = 0;
@@ -64,10 +74,11 @@ bool Game::onStart() {
 	_square->SetPos(0.0f, 0.0f, -10.0f);
 	_square->SetScale(_scale, _scale, _scale);
 
-	_sprite->SetPos(0.0f, 0.0f, -9.0f);
-	_sprite->SetScale(_scale, _scale, _scale);
+	_sprite->SetPos(-7.0f, 7.f, -9.0f);
+	_sprite->SetScale(4, 4, 4);
 
 	_cris->SetScale(_scale, _scale, _scale);
+	_cris->SetPos(-5.0f, -5.0f, 0.1f);
 
 	return true;
 }
@@ -90,6 +101,8 @@ bool Game::onUpdate(double deltaTime) {
 	
 	_triangle->SetRot(0.0f, 0.f, _trgRot);
 	_square->SetRot(_sqrRot,0.0f, _sqrRot);
+
+	_animator->Update(deltaTime);
 	
 	if (_i > 5) {
 		return false;
