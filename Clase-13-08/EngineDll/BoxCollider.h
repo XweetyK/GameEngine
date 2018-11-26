@@ -15,16 +15,22 @@ protected:
 	float _mass;
 	float _offsetX;
 	float _offsetY;
+	bool _static;
 
 public:
 	BoxCollider();
 	~BoxCollider();
 	void AttachEntity(Entity* entity);
-	void SetBoxLimits(float width, float height, float mass, float offsetX, float offsetY);
+	void SetBoxLimits(float width, float height, float mass, float offsetX, float offsetY, bool staticness);
 	void UpdateBox();
 	float GetHeightUp() { return _updHUp; };
 	float GetWidthUp() { return _updWLft; };
 	float GetHeightDw() { return _updHDw; };
 	float GetWidthDw() { return _updWRgt; };
+	float GetWidthBase() { return _width; };
+	float GetHeightBase() { return _height; };
+	bool IsStatic() { return _static; };
+	Entity* GetEntity() { return _entity; };
+	float GetMass() { return _mass; };
 };
 

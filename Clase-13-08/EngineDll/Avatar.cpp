@@ -35,8 +35,11 @@ void Avatar::SetAnimator(int frameW, int frameH, int textureW, int textureH, int
 	_sprite->SetFrame(1);
 	_animator->SetAnimation(frames, framesCant, speed);
 }
-void Avatar::SetBoxCollider(float width, float height, float mass, float offsetX, float offsetY) {
-	_boxCollider->SetBoxLimits(width, height, mass, offsetX, offsetY);
+void Avatar::SetAnimatorFrames(int* frames, int framesCant, double speed) {
+	_animator->SetAnimation(frames, framesCant, speed);
+}
+void Avatar::SetBoxCollider(float width, float height, float mass, float offsetX, float offsetY, bool staticness) {
+	_boxCollider->SetBoxLimits(width, height, mass, offsetX, offsetY, staticness);
 }
 void Avatar::UpdateAvatar(double deltatime, bool animated) {
 	if (animated) {

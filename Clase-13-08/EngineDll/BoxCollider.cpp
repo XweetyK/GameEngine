@@ -15,6 +15,8 @@ BoxCollider::BoxCollider(){
 	_mass = 0.0f;
 	_offsetX = 0.0f;
 	_offsetY = 0.0f;
+
+	_static = false;
 }
 
 BoxCollider::~BoxCollider(){
@@ -24,12 +26,13 @@ void BoxCollider::AttachEntity(Entity* entity) {
 	_entity = entity;
 }
 
-void BoxCollider::SetBoxLimits(float width, float height, float mass, float offsetX, float offsetY) {
+void BoxCollider::SetBoxLimits(float width, float height, float mass, float offsetX, float offsetY, bool staticness) {
 	_width = width;
 	_height = height;
 	_mass = mass;
 	_offsetX = offsetX;
 	_offsetY = offsetY;
+	_static = staticness;
 }
 void BoxCollider::UpdateBox() {
 	float x = _entity->GetPosX();

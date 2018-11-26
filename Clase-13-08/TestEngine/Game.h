@@ -7,6 +7,7 @@
 #include "../EngineDll/Entity.h"
 #include "../EngineDll/Animator.h"
 #include "../EngineDll/Avatar.h"
+#include "../EngineDll/CollisionManager.h"
 #include "GLFW\glfw3.h"
 using namespace std;
 class Game : public GameBase
@@ -14,26 +15,41 @@ class Game : public GameBase
 private:
 	Shape* _triangle;
 	Material* _trgMat;
+
 	Shape* _square;
 	Material* _sqrMat;
+
 	Sprite* _sprite;
 	Material* _sprtTexture;
-	//Sprite* _cris;
-	//Material* _crisTexture;
-	//Animator* _animator;
+
+	Sprite* _ambulancia;
+	Material* _ambTexture;
+
 	Avatar* _cris;
 	Avatar* _cris2;
+
+	CollisionManager* _collisionManager;
+
 	float _trgVel;
 	float _sqrVel;
+	float _sprtVel;
 	float _trgRot;
 	float _sqrRot;
+	float _sprtMov;
 	float _pos;
 	float _scale;
+
+	//-------animation test-------
+	int* _damageFrames;
+	int* _punchFrames;
+	bool _activated;
+
 protected:
 	bool onStart() override;
 	bool onStop() override;
 	bool onUpdate(double deltaTime) override;
 	void onDraw() override;
+
 public:
 	Game();
 	~Game();

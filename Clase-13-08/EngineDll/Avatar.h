@@ -25,8 +25,10 @@ public:
 	void SetSpriteRot(float rotX, float rotY, float rotZ);
 	void SetSpriteScale(float scaleX, float scaleY, float scaleZ);
 	void SetAnimator(int frameW, int frameH, int textureW, int textureH, int* frames, int framesCant, double speed);
-	void SetBoxCollider(float width, float height, float mass, float offsetX, float offsetY);
+	void SetAnimatorFrames(int* frames, int framesCant, double speed);
+	void SetBoxCollider(float width, float height, float mass, float offsetX, float offsetY, bool staticness);
 	void UpdateAvatar(double deltatime, bool animated);
 	BoxCollider* GetBoxCollider() { return _boxCollider; };
+	Sprite* GetSprite() { return _sprite; };
 };
 

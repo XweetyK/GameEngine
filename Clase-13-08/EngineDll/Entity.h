@@ -30,5 +30,6 @@ public:
 	float GetPosX() { return _position[0]; };
 	float GetPosY() { return _position[1]; };
 	float GetPosZ() { return _position[2]; };
+	glm::vec3 GetFullPos() { return _position; };
 };
 

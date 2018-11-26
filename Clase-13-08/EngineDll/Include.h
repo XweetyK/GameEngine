@@ -16,4 +16,5 @@
 #define TEXTURE_UV_PATH "Assets/uvtemplate.bmp"
 #define TEXTURE_CRISANIM_PATH "Assets/CrisSprite.bmp"
 #define TEXTURE_A_CRISANIM_PATH "Assets/CrisSpriteA.bmp"
+#define TEXTURE_AMBULANCE_PATH "Assets/ambulancia.bmp"
 using namespace std;
