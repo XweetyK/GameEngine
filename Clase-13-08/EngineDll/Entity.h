@@ -27,5 +27,8 @@ public:
 	void SetScale(float x, float y, float z);
 	void SetPos(float x, float y, float z);
 	void SetRot(float x, float y, float z);
+	float GetPosX() { return _position[0]; };
+	float GetPosY() { return _position[1]; };
+	float GetPosZ() { return _position[2]; };
 };
 

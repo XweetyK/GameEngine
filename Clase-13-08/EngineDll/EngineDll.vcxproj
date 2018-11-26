@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animator.h" />
+    <ClInclude Include="Avatar.h" />
     <ClInclude Include="BoxCollider.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="Entity.h" />
@@ -37,6 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animator.cpp" />
+    <ClCompile Include="Avatar.cpp" />
     <ClCompile Include="BoxCollider.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Entity.cpp" />

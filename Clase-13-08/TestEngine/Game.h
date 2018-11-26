@@ -6,6 +6,7 @@
 #include "../EngineDll/Sprite.h"
 #include "../EngineDll/Entity.h"
 #include "../EngineDll/Animator.h"
+#include "../EngineDll/Avatar.h"
 #include "GLFW\glfw3.h"
 using namespace std;
 class Game : public GameBase
@@ -17,9 +18,11 @@ private:
 	Material* _sqrMat;
 	Sprite* _sprite;
 	Material* _sprtTexture;
-	Sprite* _cris;
-	Material* _crisTexture;
-	Animator* _animator;
+	//Sprite* _cris;
+	//Material* _crisTexture;
+	//Animator* _animator;
+	Avatar* _cris;
+	Avatar* _cris2;
 	float _trgVel;
 	float _sqrVel;
 	float _trgRot;
