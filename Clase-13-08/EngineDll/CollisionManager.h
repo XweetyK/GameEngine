@@ -16,7 +16,7 @@ public:
 	CollisionManager(int layers);
 	~CollisionManager();
 	void AddEntity(BoxCollider* _box, int layer);
-	void CheckLayers();
+	void UpdateCollider();
 	void CheckCollisions(list<BoxCollider*> *layer1, list<BoxCollider*> *layer2);
 	void Collision(BoxCollider* box1, BoxCollider* box2);
 	bool IsColliding() { return _colliding; };

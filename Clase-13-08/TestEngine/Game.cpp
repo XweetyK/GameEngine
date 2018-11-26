@@ -148,7 +148,7 @@ bool Game::onUpdate(double deltaTime) {
 	
 	_ambulancia->SetPos(70 + _sprtMov*2.5f, _ambulancia->GetPosY(), _ambulancia->GetPosZ());
 	_cris2->SetSpritePos(10+_sprtMov, _cris->GetSprite()->GetPosY(), _cris->GetSprite()->GetPosZ());
-	_collisionManager->CheckLayers();
+	_collisionManager->UpdateCollider();
 
 	
 	

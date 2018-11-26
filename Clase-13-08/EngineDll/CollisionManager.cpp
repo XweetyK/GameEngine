@@ -17,7 +17,7 @@ void CollisionManager::AddEntity(BoxCollider* _box, int layer) {
 	_layers[layer]->push_back(_box);
 }
 
-void CollisionManager::CheckLayers() {
+void CollisionManager::UpdateCollider() {
 	for (int i = 0; i < _layers.size(); i++)
 	{
 		for (int j = i + 1; j < _layers.size(); j++)
