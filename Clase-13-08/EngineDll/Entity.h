@@ -19,6 +19,7 @@ protected:
 	glm::mat4 _translateMat;
 	glm::mat4 _rotMat;
 	glm::mat4 _scaleMat;
+	bool _canMove;
 public:
 	virtual void Draw() = 0;
 	Entity(Renderer* renderer);
@@ -31,5 +32,6 @@ public:
 	float GetPosY() { return _position[1]; };
 	float GetPosZ() { return _position[2]; };
 	glm::vec3 GetFullPos() { return _position; };
+	void CanMove(bool canMove) { _canMove = canMove; };
 };
 

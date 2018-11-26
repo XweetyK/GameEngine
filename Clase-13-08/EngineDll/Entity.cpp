@@ -11,6 +11,7 @@ Entity::Entity(Renderer* renderer){
 	_translateMat = glm::mat4(1.0f);
 	_rotMat = glm::mat4(1.0f);
 	_scaleMat = glm::mat4(1.0f);
+	_canMove = true;
 }
 Entity::~Entity(){
 }
@@ -26,12 +27,14 @@ void Entity::SetScale(float x, float y, float z) {
 	UpdModelMatrix();
 }
 void Entity::SetPos(float x, float y, float z) {
-	_position[0] = x;
-	_position[1] = y;
-	_position[2] = z;
+	if (_canMove) {
+		_position[0] = x;
+		_position[1] = y;
+		_position[2] = z;
 
-	_translateMat = glm::translate(glm::mat4(1.0f), _position);
-	UpdModelMatrix();
+		_translateMat = glm::translate(glm::mat4(1.0f), _position);
+		UpdModelMatrix();
+	}
 }
 void Entity::SetRot(float x, float y, float z) {
 	_rotation[0] = x;

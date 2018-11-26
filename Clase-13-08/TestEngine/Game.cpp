@@ -14,7 +14,7 @@ bool Game::onStart() {
 	_scale = 8;
 	_trgVel = 0.5;
 	_sqrVel = 1.0;
-	_sprtVel = -3.0;
+	_sprtVel = -5.0;
 	_activated = false;
 
 	_collisionManager = new CollisionManager(2);
@@ -86,7 +86,7 @@ bool Game::onStart() {
 		42,41
 	};
 	_cris2->SetAnimator(128, 128, 1024, 1024, _frames2, 6, 10);
-	_cris2->SetBoxCollider(5.0f, 5.0f, 3.0f, 0.0f, 0.0f, false);
+	_cris2->SetBoxCollider(5.0f, 5.0f, 4.0f, 0.0f, 0.0f, false);
 	
 	cout << "game::start()" << endl;
 	_i = 0;
@@ -100,7 +100,7 @@ bool Game::onStart() {
 	_sprite->SetPos(-7.0f, 7.f, 0.0f);
 	_sprite->SetScale(4, 4, 4);
 
-	_ambulancia->SetPos(5.0f, -5.0f, -0.1f);
+	_ambulancia->SetPos(60.0f, -5.0f, -0.1f);
 	_ambulancia->SetScale(8, 8, 8);
 
 	_cris->SetSpriteScale(_scale, _scale, _scale);
@@ -129,7 +129,7 @@ bool Game::onUpdate(double deltaTime) {
 
 	_trgRot += deltaTime*_trgVel;
 	_sqrRot += deltaTime*_sqrVel;
-	_sprtMov += deltaTime*_sprtVel;
+	_sprtMov = deltaTime*_sprtVel;
 	
 	_triangle->SetRot(0.0f, 0.0f, _trgRot);
 	_square->SetRot(_sqrRot,0.0f, _sqrRot);
@@ -145,11 +145,12 @@ bool Game::onUpdate(double deltaTime) {
 
 	_cris->UpdateAvatar(deltaTime,true);
 	_cris2->UpdateAvatar(deltaTime, true);
-	
-	_ambulancia->SetPos(70 + _sprtMov*2.5f, _ambulancia->GetPosY(), _ambulancia->GetPosZ());
-	_cris2->SetSpritePos(10+_sprtMov, _cris->GetSprite()->GetPosY(), _cris->GetSprite()->GetPosZ());
-	_collisionManager->UpdateCollider();
 
+	
+	_ambulancia->SetPos(_ambulancia->GetPosX() + _sprtMov*2.5f, _ambulancia->GetPosY(), _ambulancia->GetPosZ());
+	_cris2->SetSpritePos(_cris2->GetSprite()->GetPosX() + _sprtMov, _cris->GetSprite()->GetPosY(), _cris->GetSprite()->GetPosZ());
+	
+	_collisionManager->UpdateCollider();
 	
 	
 	if (_i > 5) {
