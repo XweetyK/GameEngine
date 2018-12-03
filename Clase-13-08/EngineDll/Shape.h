@@ -19,6 +19,13 @@ protected:
 	unsigned int _bufferId;
 	int _vertexCant;
 
+	//Circle--------------------------
+	float _radio;
+	float _angulo;
+	float _grados;
+	int _triangleCant;
+	float* _color;
+
 	//Color---------------------------
 	float* _colorVertex;
 	unsigned int _colorBufferId;

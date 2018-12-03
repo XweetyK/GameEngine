@@ -40,6 +40,15 @@ bool Game::onStart() {
 	_square->SetVertex(_sqrVertices, 4);
 	_square->SetMaterial(_sqrMat);
 
+	_cirMat = Material::LoadMaterial(COLOR_VERTEX_SHADER_PATH, COLOR_FRG_SHADER_PATH);
+	_circle = new Circle(renderer, 20, 1.5f);
+	float* _cirColor = new float[3]{
+		1.0f,  0.7f,  0.0f
+	};
+	_circle->SetColor(_cirColor);
+	_circle->MakeCircle();
+	_circle->SetMaterial(_cirMat);
+
 	_sprtTexture = Material::LoadMaterial(TEXTURE_VERTEX_SHADER_PATH, TEXTURE_FRG_SHADER_PATH);
 	_sprite = new Sprite(renderer);
 	_sprite->LoadBMP(TEXTURE_SPRITE_PATH);
@@ -100,6 +109,8 @@ bool Game::onStart() {
 	_sprite->SetPos(-7.0f, 7.f, 0.0f);
 	_sprite->SetScale(4, 4, 4);
 
+	_circle->SetPos(7.0f, 7.f, 0.0f);
+
 	_ambulancia->SetPos(60.0f, -5.0f, -0.1f);
 	_ambulancia->SetScale(8, 8, 8);
 
@@ -132,6 +143,7 @@ bool Game::onUpdate(double deltaTime) {
 	_sprtMov = deltaTime*_sprtVel;
 	
 	_triangle->SetRot(0.0f, 0.0f, _trgRot);
+	_circle->SetRot(0.0f, _trgRot*2, 0.0f);
 	_square->SetRot(_sqrRot,0.0f, _sqrRot);
 
 	if (_collisionManager->IsColliding()) {
@@ -161,6 +173,7 @@ bool Game::onUpdate(double deltaTime) {
 void Game::onDraw() {
 	_triangle->Draw();
 	_square->Draw();
+	_circle->Draw();
 	_sprite->Draw();
 	_ambulancia->Draw();
 	_cris2->DrawSprite();

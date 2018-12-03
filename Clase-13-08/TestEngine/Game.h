@@ -7,6 +7,7 @@
 #include "../EngineDll/Entity.h"
 #include "../EngineDll/Animator.h"
 #include "../EngineDll/Avatar.h"
+#include "../EngineDll/Circle.h"
 #include "../EngineDll/CollisionManager.h"
 #include "GLFW\glfw3.h"
 using namespace std;
@@ -18,6 +19,9 @@ private:
 
 	Shape* _square;
 	Material* _sqrMat;
+
+	Circle* _circle;
+	Material* _cirMat;
 
 	Sprite* _sprite;
 	Material* _sprtTexture;
