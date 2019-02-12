@@ -25,6 +25,7 @@ public:
 	void SetSpriteRot(float rotX, float rotY, float rotZ);
 	void SetSpriteScale(float scaleX, float scaleY, float scaleZ);
 	void SetAnimator(int frameW, int frameH, int textureW, int textureH, int* frames, int framesCant, double speed);
+	void SetAnimator(int frameW, int frameH, int textureW, int textureH, int frame);
 	void SetAnimatorFrames(int* frames, int framesCant, double speed);
 	void SetBoxCollider(float width, float height, float mass, float offsetX, float offsetY, bool staticness);
 	void UpdateAvatar(double deltatime, bool animated);

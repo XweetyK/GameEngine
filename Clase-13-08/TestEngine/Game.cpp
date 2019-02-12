@@ -18,6 +18,8 @@ bool Game::onStart() {
 	_activated = false;
 
 	_collisionManager = new CollisionManager(2);
+	_tilemap = new TilemapManager(960,640,32,32,6);
+	_tilemap->SetTilemap(TILEMAP_PATH);
 
 	_trgMat = Material::LoadMaterial(VERTEX_SHADER_PATH, FRG_SHADER_PATH);
 	_triangle = new Triangle(renderer);
@@ -92,7 +94,7 @@ bool Game::onStart() {
 	};
 	_punchFrames = new int[5] {
 		45,44,43,
-		42,41
+		42,41,
 	};
 	_cris2->SetAnimator(128, 128, 1024, 1024, _frames2, 6, 10);
 	_cris2->SetBoxCollider(5.0f, 5.0f, 4.0f, 0.0f, 0.0f, false);
@@ -122,6 +124,20 @@ bool Game::onStart() {
 	_collisionManager->AddEntity(_cris->GetBoxCollider(), 0);
 	_collisionManager->AddEntity(_cris2->GetBoxCollider(), 1);
 
+	int* _tileFrames1 = new int[1]{ 1, };
+	int* _tileFrames2 = new int[1]{ 2, };
+	int* _tileFrames3 = new int[1]{ 3, };
+	int* _tileFrames4 = new int[2]{ 4,5 };
+	int* _tileFrames5 = new int[1]{ 5, };
+	int* _tileFrames0 = new int[1]{ 0, };
+	_tilemap->SetTilesetProperty(0, true, TILESET_PATH, false, 64, 96, 0);
+	_tilemap->SetTilesetProperty(1, true, TILESET_PATH, false, 64, 96, 1);
+	_tilemap->SetTilesetProperty(2, true, TILESET_PATH, false, 64, 96, 2);
+	_tilemap->SetTilesetProperty(3, true, TILESET_PATH, false, 64, 96, 3);
+	_tilemap->SetTilesetProperty(4, false, TILESET_PATH, true, 64, 96, _tileFrames4, 2, 10);
+	_tilemap->SetTilesetProperty(5, false, TILESET_PATH, false, 64, 96, 5);
+	_tilemap->CreateTiles(renderer);
+
 	return true;
 }
 
@@ -131,6 +147,7 @@ bool Game::onStop() {
 	delete _square;
 	delete _triangle;
 	delete _cris;
+	delete _tilemap;
 	return true;
 }
 bool Game::onUpdate(double deltaTime) {
@@ -157,6 +174,7 @@ bool Game::onUpdate(double deltaTime) {
 
 	_cris->UpdateAvatar(deltaTime,true);
 	_cris2->UpdateAvatar(deltaTime, true);
+	_tilemap->Update(deltaTime);
 
 	
 	_ambulancia->SetPos(_ambulancia->GetPosX() + _sprtMov*2.5f, _ambulancia->GetPosY(), _ambulancia->GetPosZ());
@@ -178,4 +196,5 @@ void Game::onDraw() {
 	_ambulancia->Draw();
 	_cris2->DrawSprite();
 	_cris->DrawSprite();
+	_tilemap->Draw();
 }

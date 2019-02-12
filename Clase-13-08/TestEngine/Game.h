@@ -9,6 +9,7 @@
 #include "../EngineDll/Avatar.h"
 #include "../EngineDll/Circle.h"
 #include "../EngineDll/CollisionManager.h"
+#include "../EngineDll/TilemapManager.h"
 #include "GLFW\glfw3.h"
 using namespace std;
 class Game : public GameBase
@@ -33,6 +34,8 @@ private:
 	Avatar* _cris2;
 
 	CollisionManager* _collisionManager;
+
+	TilemapManager* _tilemap;
 
 	float _trgVel;
 	float _sqrVel;

@@ -35,6 +35,10 @@ void Avatar::SetAnimator(int frameW, int frameH, int textureW, int textureH, int
 	_sprite->SetFrame(1);
 	_animator->SetAnimation(frames, framesCant, speed);
 }
+void Avatar::SetAnimator(int frameW, int frameH, int textureW, int textureH, int frame) {
+	_sprite->MakeFrames(frameW, frameH, textureW, textureH);
+	_sprite->SetFrame(frame);
+}
 void Avatar::SetAnimatorFrames(int* frames, int framesCant, double speed) {
 	_animator->SetAnimation(frames, framesCant, speed);
 }
