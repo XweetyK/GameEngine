@@ -20,4 +20,6 @@
 #define TEXTURE_A_CRISANIM_PATH "Assets/CrisSpriteA.bmp"
 #define TEXTURE_AMBULANCE_PATH "Assets/ambulancia.bmp"
 #define TILESET_PATH "Assets/Level/Tileset.bmp"
+#define WATERTILE_PATH "Assets/Level/Water.bmp"
+#define FIRETILE_PATH "Assets/Level/Fire.bmp"
 using namespace std;

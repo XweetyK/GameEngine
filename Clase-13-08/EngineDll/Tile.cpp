@@ -16,6 +16,7 @@ void Tile::SetTileProperty(Renderer* renderer, int w, int h, const char* BMPtile
 }
 
 Tile::~Tile(){
+	cout << "~Tile" << endl;
 	if (_sprite) {
 		delete _sprite;
 	}

@@ -31,10 +31,11 @@ private:
 	int _tileRow;
 	int _tileCol;
 	bool _readingTile;
+	float _scaleFactor;
 
 	TileProperty* _properties;
 public:
-	TilemapManager(int width, int height, int tileSizeW, int tileSizeH, int tilesTypeCant);
+	TilemapManager(int width, int height, int tileSizeW, int tileSizeH, int tilesTypeCant, float scaleFactor);
 	~TilemapManager();
 	void SetTilemap(const char* FILE);
 	void SetTilesetProperty(int tileSet, bool collision, const char* BMP, bool animated, int textureW, int textureH, int* frames, int framesCant, double speed);

@@ -88,8 +88,8 @@ void Sprite::MakeFrames(int frameWidth, int frameHeight, int textureWidth, int t
 	int cont = 0;
 
 	_frame = new Frame[framesCant];
-	for (int j = 0; j < rows; j++){
-		for (int i = 0; i < columns; i++){
+	for (int j = 0; j < columns; j++){
+		for (int i = 0; i < rows; i++){
 			_frame[cont].SetVertex(uvWidth*i, uvWidth*(i + 1), 1.0f-( uvHeight*j), 1.0f - (uvHeight*(j + 1)));
 			if (cont != framesCant) {
 				cont++;

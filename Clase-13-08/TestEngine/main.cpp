@@ -6,7 +6,7 @@ int main()
 {
 	Game* game = new Game();
 	
-	if (game->start(450,600,"Ventanita :D"))
+	if (game->start(640,960,"Ventanita :D"))
 	{
 		game->loop();
 	}

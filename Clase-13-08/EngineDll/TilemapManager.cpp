@@ -3,11 +3,12 @@
 
 
 
-TilemapManager::TilemapManager(int width, int height, int tileSizeW, int tileSizeH, int tilesTypeCant) {
+TilemapManager::TilemapManager(int width, int height, int tileSizeW, int tileSizeH, int tilesTypeCant, float scaleFactor) {
 	_width = width;
 	_height = height;
 	_tileW = tileSizeW;
 	_tileH = tileSizeH;
+	_scaleFactor = scaleFactor;
 
 	_tileCol = _width / _tileW;
 	_tileRow = _height / _tileH;
@@ -22,6 +23,7 @@ TilemapManager::TilemapManager(int width, int height, int tileSizeW, int tileSiz
 
 
 TilemapManager::~TilemapManager() {
+	cout << "~tilemap" << endl;
 	/*if (_tilemap) {
 	for (int i = 0; i < _height; i++) {
 		delete[] _tilemap[i];
@@ -103,8 +105,8 @@ void TilemapManager::CreateTiles(Renderer* renderer) {
 			if (_tilemap[i][j] != -1) {
 				_tilesGroup[i][j].SetEmpty(false);
 				_tilesGroup[i][j].SetTileProperty(renderer, _tileW, _tileH, _properties[_tilemap[i][j]].BMPsprite, _tilemap[i][j], _properties[_tilemap[i][j]]._collide);
-				_tilesGroup[i][j].SetTilePos((j*1.0f) - 9.5f, (i*-1.0f) + 9.5f, 0.0f);
-				_tilesGroup[i][j].SetTileScale(1.0f, 1.0f, 0);
+				_tilesGroup[i][j].SetTilePos((j*_scaleFactor) - (10.0f-(_scaleFactor/2)), (i*-_scaleFactor) + (10.0f - (_scaleFactor / 2)), 0.0f);
+				_tilesGroup[i][j].SetTileScale(_scaleFactor, _scaleFactor, 0);
 				if (_properties[_tilemap[i][j]]._animated == true) {
 				_tilesGroup[i][j].SetAnimator(_tileW, _tileH, _properties[_tilemap[i][j]]._texW,
 					_properties[_tilemap[i][j]]._texH, _properties[_tilemap[i][j]]._frames,

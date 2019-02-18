@@ -18,7 +18,7 @@ bool Game::onStart() {
 	_activated = false;
 
 	_collisionManager = new CollisionManager(2);
-	_tilemap = new TilemapManager(960,640,32,32,6);
+	_tilemap = new TilemapManager(960,640,32,32,7,1.0f);
 	_tilemap->SetTilemap(TILEMAP_PATH);
 
 	_trgMat = Material::LoadMaterial(VERTEX_SHADER_PATH, FRG_SHADER_PATH);
@@ -127,15 +127,17 @@ bool Game::onStart() {
 	int* _tileFrames1 = new int[1]{ 1, };
 	int* _tileFrames2 = new int[1]{ 2, };
 	int* _tileFrames3 = new int[1]{ 3, };
-	int* _tileFrames4 = new int[2]{ 4,5 };
-	int* _tileFrames5 = new int[1]{ 5, };
+	int* _tileFrames4 = new int[3]{ 3,4,5 };
+	int* _tileFrames5 = new int[3]{ 3,4,5 };
+	int* _tileFrames6 = new int[3]{ 0,1,2 };
 	int* _tileFrames0 = new int[1]{ 0, };
 	_tilemap->SetTilesetProperty(0, true, TILESET_PATH, false, 64, 96, 0);
 	_tilemap->SetTilesetProperty(1, true, TILESET_PATH, false, 64, 96, 1);
 	_tilemap->SetTilesetProperty(2, true, TILESET_PATH, false, 64, 96, 2);
 	_tilemap->SetTilesetProperty(3, true, TILESET_PATH, false, 64, 96, 3);
-	_tilemap->SetTilesetProperty(4, false, TILESET_PATH, true, 64, 96, _tileFrames4, 2, 10);
-	_tilemap->SetTilesetProperty(5, false, TILESET_PATH, false, 64, 96, 5);
+	_tilemap->SetTilesetProperty(4, false, WATERTILE_PATH, true, 64, 96, _tileFrames4, 3, 5);
+	_tilemap->SetTilesetProperty(5, false, FIRETILE_PATH, true, 96, 128, _tileFrames4, 3, 5);
+	_tilemap->SetTilesetProperty(6, false, WATERTILE_PATH, true, 64, 96, _tileFrames6, 3, 10);
 	_tilemap->CreateTiles(renderer);
 
 	return true;

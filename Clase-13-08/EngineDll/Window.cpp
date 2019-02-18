@@ -1,6 +1,6 @@
 #include "Window.h"
 #include "GLFW\glfw3.h"
-Window::Window() :_alto(300), _ancho(500), _nombre("Test Ventana")
+Window::Window() :_alto(640), _ancho(960), _nombre("Test Ventana")
 {
 }
 Window::~Window()
