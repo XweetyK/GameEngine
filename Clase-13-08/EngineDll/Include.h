@@ -22,4 +22,9 @@
 #define TILESET_PATH "Assets/Level/Tileset.bmp"
 #define WATERTILE_PATH "Assets/Level/Water.bmp"
 #define FIRETILE_PATH "Assets/Level/Fire.bmp"
+
+#define UP_INPUT 265
+#define DOWN_INPUT 264
+#define LEFT_INPUT 263
+#define RIGHT_INPUT 262
 using namespace std;

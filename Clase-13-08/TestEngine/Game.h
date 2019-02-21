@@ -18,7 +18,7 @@ private:
 	Shape* _triangle;
 	Material* _trgMat;
 
-	Shape* _square;
+	Square* _square;
 	Material* _sqrMat;
 
 	Circle* _circle;
@@ -34,8 +34,8 @@ private:
 	Avatar* _cris2;
 
 	CollisionManager* _collisionManager;
-
 	TilemapManager* _tilemap;
+
 
 	float _trgVel;
 	float _sqrVel;

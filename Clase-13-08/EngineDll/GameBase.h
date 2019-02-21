@@ -15,11 +15,13 @@ protected:
 	virtual void onDraw() = 0;
 	Renderer * renderer;
 	Window * window;
+	int lastState = false;
 public:
 	GameBase();
 	~GameBase();
 	bool start(int alto, int ancho, string nombre);
 	bool stop();
 	void loop();
+	bool input(int key);
 };
 

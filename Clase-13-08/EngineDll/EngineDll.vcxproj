@@ -34,7 +34,6 @@
     <ClInclude Include="Shape.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Square.h" />
-    <ClInclude Include="Tile.h" />
     <ClInclude Include="TilemapManager.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Window.h" />
@@ -52,7 +51,6 @@
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="Square.cpp" />
-    <ClCompile Include="Tile.cpp" />
     <ClCompile Include="TilemapManager.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Window.cpp" />

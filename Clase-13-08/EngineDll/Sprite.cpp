@@ -15,7 +15,7 @@ Sprite::Sprite(Renderer* render) : Shape(render){
 		0.0f, 0.0f,	//corner left down
 		0.0f, 1.0f,	//corner left up
 		1.0f, 0.0f,	//corner right down
-		1.0f, 1.0f	//corner right up
+		1.0f, 1.0f,	//corner right up
 	};
 }
 
@@ -100,4 +100,8 @@ void Sprite::MakeFrames(int frameWidth, int frameHeight, int textureWidth, int t
 void Sprite::SetFrame(int frame) {
 	_spriteVertex = _frame[frame]._vertexUV;
 	_UVBufferId = renderer->GenUVBuffer(_spriteVertex, sizeof(float)* 4 * 2);
+}
+void Sprite::SetUvVertex(float* uvVertex, int vertexCant) {
+	_spriteVertex = uvVertex;
+	_UVBufferId = renderer->GenUVBuffer(_spriteVertex, sizeof(float) * vertexCant * 2);
 }

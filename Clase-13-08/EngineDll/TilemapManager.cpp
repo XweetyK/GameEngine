@@ -3,15 +3,19 @@
 
 
 
-TilemapManager::TilemapManager(int width, int height, int tileSizeW, int tileSizeH, int tilesTypeCant, float scaleFactor) {
+TilemapManager::TilemapManager(int width, int height, int tileSizeW, int tileSizeH, int tilesTypeCant, Renderer* renderer) {
 	_width = width;
 	_height = height;
 	_tileW = tileSizeW;
 	_tileH = tileSizeH;
-	_scaleFactor = scaleFactor;
+	_tilesCant = tilesTypeCant;
+
 
 	_tileCol = _width / _tileW;
 	_tileRow = _height / _tileH;
+
+	_spriteVertexCant = _tileCol*_tileRow * 4 * 3;
+	_uvVertexCant = _tileCol*_tileRow * 4 * 2;
 
 	_tilemap = new int*[_tileRow];
 	for (int i = 0; i < _tileRow; i++){
@@ -19,23 +23,22 @@ TilemapManager::TilemapManager(int width, int height, int tileSizeW, int tileSiz
 	}
 
 	_properties = new TileProperty[tilesTypeCant];
+	_mesh = new Sprite(renderer);
+	_mat= Material::LoadMaterial(TEXTURE_VERTEX_SHADER_PATH, TEXTURE_FRG_SHADER_PATH);
+
+	_meshVertex = new float[_spriteVertexCant];
+	_uvVertex = new float[_uvVertexCant];
 }
 
 
 TilemapManager::~TilemapManager() {
 	cout << "~tilemap" << endl;
-	/*if (_tilemap) {
-	for (int i = 0; i < _height; i++) {
-		delete[] _tilemap[i];
-	}
-	delete[] _tilemap;
-	}
-	if (_tilesGroup) {
-		for (int i = 0; i < _height; i++) {
-			delete[] _tilesGroup[i];
+	if (_tilemap) {
+		for (int i = 0; i < _tileRow; i++) {
+			delete[] _tilemap[i];
 		}
-		delete[] _tilesGroup;
-	}*/
+		delete[] _tilemap;
+	}
 }
 
 void TilemapManager::SetTilemap(const char* FILE) {
@@ -75,70 +78,167 @@ void TilemapManager::SetTilemap(const char* FILE) {
 	}
 	_tilesetFile.close();
 }
-void TilemapManager::SetTilesetProperty(int tileSet, bool collision, const char* BMP, bool animated, int textureW, int textureH, int* frames, int framesCant, double speed){
-	_properties[tileSet].BMPsprite = BMP;
-	_properties[tileSet]._collide = collision;
-	_properties[tileSet]._animated = animated;
-	_properties[tileSet]._frames = frames;
-	_properties[tileSet]._framesCant = framesCant;
-	_properties[tileSet]._texW = textureW;
-	_properties[tileSet]._texH = textureH;
-	_properties[tileSet]._speed = speed;
+
+void TilemapManager::SetSprite(const char * BMPfile, int texWidth, int texHeight) {
+	_mesh->LoadBMP(BMPfile);
+	CreateTiles();
+	CreateUV(texWidth,texHeight);
+	_mesh->SetVertex(_meshVertex, (_spriteVertexCant / 3));
+	_mesh->SetUvVertex(_uvVertex, (_uvVertexCant / 2));
+	_mesh->SetMaterial(_mat);
 }
-void TilemapManager::SetTilesetProperty(int tileSet, bool collision, const char* BMP, bool animated, int textureW, int textureH, int staticFrame) {
-	_properties[tileSet].BMPsprite = BMP;
-	_properties[tileSet]._collide = collision;
-	_properties[tileSet]._animated = animated;
-	_properties[tileSet]._staticFrame = staticFrame;
-	_properties[tileSet]._texW = textureW;
-	_properties[tileSet]._texH = textureH;
-	_properties[tileSet]._speed = 0.0f;
+
+void TilemapManager::SetTilesetProperty(int tileNum, int tileSprite) {
+	_properties[tileNum]._tilenum = tileSprite;
 }
-void TilemapManager::CreateTiles(Renderer* renderer) {
-	_tilesGroup = new Tile*[_tileRow];
-	for (int i = 0; i < _tileRow; i++) {
-		_tilesGroup[i] = new Tile[_tileCol];
+
+void TilemapManager::CreateTiles() {
+	float _X = 0.0f;
+	float _Y = 0.0f;
+	float _Z = 0.0f;
+	bool _looping = false;
+	bool _up = true;
+	int _cont = 0;
+	int xcont = 2;
+	for (int j = 0; j < _tileRow; j++) {
+		switch (_looping)
+		{
+		case true:
+			for (int i = 0; i < (_tileCol*4); i++) {
+				_meshVertex[_cont] = _X;
+				_meshVertex[_cont + 1] = _Y;
+				_meshVertex[_cont + 2] = _Z;
+				xcont++;
+				if (xcont == 4) {
+					_X -= 1.0f;
+					xcont = 0;
+				}
+				if (_up) {
+					_Y += 1.0;
+					_up = false;
+				}
+				else {
+					_Y -= 1.0;
+					_up = true;
+				}
+				_cont += 3;
+			}
+			cout << _cont << endl;
+			_Y -= 1;
+			_looping = false;
+			break;
+		case false:
+			for (int i = 0; i < (_tileCol * 4); i++) {
+				_meshVertex[_cont] = _X;
+				_meshVertex[_cont + 1] = _Y;
+				_meshVertex[_cont + 2] = _Z;
+				xcont++;
+				if (xcont == 4) {
+					_X += 1.0f;
+					xcont = 0;
+				}
+				if (_up) {
+					_Y += 1.0;
+					_up = false;
+				}
+				else {
+					_Y -= 1.0;
+					_up = true;
+				}
+				_cont += 3;
+			}
+			cout << _cont << endl;
+			_Y -= 1;
+			_looping = true;
+			break;
+		}
+	}
+}
+
+void TilemapManager::CreateUV(int textureWidth, int textureHeight) {
+	int columns = textureHeight / _tileH;
+	int rows = textureWidth / _tileW;
+	float uvHeight = (float)_tileH / (float)textureHeight;
+	float uvWidth = (float)_tileW / (float)textureWidth;
+	int framesCant = rows * columns;
+	int cont = 0;
+
+	_frames = new Frame[framesCant];
+	for (int j = 0; j < columns; j++) {
+		for (int i = 0; i < rows; i++) {
+			_frames[cont].SetVertex(uvWidth*i, uvWidth*(i + 1), 1.0f - (uvHeight*j), 1.0f - (uvHeight*(j + 1)));
+			if (cont != framesCant) {
+				cont++;
+			}
+		}
 	}
 
-	for (int i = 0; i < _tileRow; i++){
-		for (int j = 0; j < _tileCol; j++) {
-			if (_tilemap[i][j] != -1) {
-				_tilesGroup[i][j].SetEmpty(false);
-				_tilesGroup[i][j].SetTileProperty(renderer, _tileW, _tileH, _properties[_tilemap[i][j]].BMPsprite, _tilemap[i][j], _properties[_tilemap[i][j]]._collide);
-				_tilesGroup[i][j].SetTilePos((j*_scaleFactor) - (10.0f-(_scaleFactor/2)), (i*-_scaleFactor) + (10.0f - (_scaleFactor / 2)), 0.0f);
-				_tilesGroup[i][j].SetTileScale(_scaleFactor, _scaleFactor, 0);
-				if (_properties[_tilemap[i][j]]._animated == true) {
-				_tilesGroup[i][j].SetAnimator(_tileW, _tileH, _properties[_tilemap[i][j]]._texW,
-					_properties[_tilemap[i][j]]._texH, _properties[_tilemap[i][j]]._frames,
-					_properties[_tilemap[i][j]]._framesCant, _properties[_tilemap[i][j]]._speed);
+	for (int i = 0; i < _tilesCant; i++){
+		_properties[i]._uvVertex = _frames[_properties[i]._tilenum].GetFrame();
+	}
+
+	bool _flipRow = false;
+
+	int _cont = 0;
+	for (int i = 0; i < _tileRow; i++) {
+		if (_flipRow) {
+			for (int j = _tileCol-1; j > -1; j--) {
+				if (_tilemap[i][j] == -1) {
+					for (int k = 0; k < 8; k++)
+					{
+						_uvVertex[_cont + k] = -1.0f;
+					}
+					_cont += 8;
 				}
-				if (_properties[_tilemap[i][j]]._animated == false) {
-					_tilesGroup[i][j].SetAnimator(_tileW, _tileH, _properties[_tilemap[i][j]]._texW,
-						_properties[_tilemap[i][j]]._texH, _properties[_tilemap[i][j]]._staticFrame);
+				else {
+					_uvVertex[_cont] = _properties[_tilemap[i][j]]._uvVertex[4];
+					_uvVertex[_cont + 1] = _properties[_tilemap[i][j]]._uvVertex[5];
+					_uvVertex[_cont + 2] = _properties[_tilemap[i][j]]._uvVertex[6];
+					_uvVertex[_cont + 3] = _properties[_tilemap[i][j]]._uvVertex[7];
+					_uvVertex[_cont + 4] = _properties[_tilemap[i][j]]._uvVertex[0];
+					_uvVertex[_cont + 5] = _properties[_tilemap[i][j]]._uvVertex[1];
+					_uvVertex[_cont + 6] = _properties[_tilemap[i][j]]._uvVertex[2];
+					_uvVertex[_cont + 7] = _properties[_tilemap[i][j]]._uvVertex[3];
+					_cont += 8;
 				}
 			}
-			else {
-				_tilesGroup[i][j].SetEmpty(true);
-			}
+			_flipRow = false;
 		}
-		cout << endl;
+		else {
+			for (int j = 0; j < _tileCol; j++) {
+				for (int k = 0; k < 8; k++) {
+					if (_tilemap[i][j] == -1) {
+						_uvVertex[_cont + k] = -1.0f;
+					}
+					else {
+						_uvVertex[_cont + k] = _properties[_tilemap[i][j]]._uvVertex[k];
+					}
+				}
+				_cont += 8;
+			}
+			_flipRow = true;
+		}
 	}
 }
+
 void TilemapManager::Draw() {
-	for (int i = 0; i < _tileRow; i++) {
-		for (int j = 0; j < _tileCol; j++) {
-			if (_tilesGroup[i][j].GetEmpty() != true) {
-				_tilesGroup[i][j].DrawTile();
-			}
-		}
-	}
+	_mesh->Draw();
 }
-void TilemapManager::Update(double deltaTime) {
-	for (int i = 0; i < _tileRow; i++) {
-		for (int j = 0; j < _tileCol; j++) {
-			if (_tilesGroup[i][j].GetEmpty() != true) {
-				_tilesGroup[i][j].UpdateAnim(deltaTime, _properties[_tilesGroup[i][j].GetType()]._animated);
-			}
-		}
+
+void TilemapManager::SetPos(float x, float y, float z) {
+	_mesh->SetPos(x, y, z);
+}
+float TilemapManager::GetPos(int axis) {
+	switch (axis)
+	{
+	case 1:
+		return _mesh->GetPosX();
+		break;
+	case 2:
+		return _mesh->GetPosY();
+		break;
+	case 3:
+		return _mesh->GetPosZ();
+		break;
 	}
 }

@@ -1,19 +1,12 @@
 #pragma once
 #include "Exports.h"
 #include "Include.h"
-#include "Tile.h"
+#include "Sprite.h"
 #include <ctype.h>
 using namespace std;
 struct TileProperty {
-	bool _collide;
-	bool _animated;
-	const char* BMPsprite;
-	int* _frames;
-	int _texW;
-	int _texH;
-	int _framesCant;
-	double _speed;
-	int _staticFrame;
+	int _tilenum;
+	float* _uvVertex;
 };
 class ENGINEDLL_API TilemapManager
 {
@@ -21,8 +14,10 @@ private:
 	char _reader[200] = "";
 
 	int** _tilemap;
-	Tile** _tilesGroup;
 	ifstream _tilesetFile;
+
+	float* _meshVertex;
+	float* _uvVertex;
 
 	int _width;
 	int _height;
@@ -30,18 +25,26 @@ private:
 	int _tileH;
 	int _tileRow;
 	int _tileCol;
+	int _tilesCant;
 	bool _readingTile;
-	float _scaleFactor;
+	int _spriteVertexCant;
+	int _uvVertexCant;
 
+	Sprite* _mesh;
+	Material* _mat;
+	Frame* _frames;
 	TileProperty* _properties;
+
 public:
-	TilemapManager(int width, int height, int tileSizeW, int tileSizeH, int tilesTypeCant, float scaleFactor);
+	TilemapManager(int width, int height, int tileSizeW, int tileSizeH, int tilesTypeCant, Renderer* renderer);
 	~TilemapManager();
 	void SetTilemap(const char* FILE);
-	void SetTilesetProperty(int tileSet, bool collision, const char* BMP, bool animated, int textureW, int textureH, int* frames, int framesCant, double speed);
-	void SetTilesetProperty(int tileSet, bool collision, const char* BMP, bool animated, int textureW, int textureH, int staticFrame);
-	void CreateTiles(Renderer* renderer);
+	void SetSprite(const char * BMPfile, int texWidth, int texHeight);
+	void SetTilesetProperty(int tileNum, int tileSprite);
+	void CreateTiles();
+	void CreateUV(int textureWidth, int textureHeight);
 	void Draw();
-	void Update(double deltaTime);
+	void SetPos(float x, float y, float z);
+	float GetPos(int axis);
 };
 

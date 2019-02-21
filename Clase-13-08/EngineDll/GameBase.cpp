@@ -6,6 +6,11 @@ GameBase::GameBase()
 
 GameBase::~GameBase()
 {}
+static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+	if (action == GLFW_PRESS) {
+		cout << key << endl;
+	}
+}
 
 bool GameBase::start(int alto, int ancho, string nombre)
 {
@@ -15,6 +20,8 @@ bool GameBase::start(int alto, int ancho, string nombre)
 	if (!window->start(alto, ancho, nombre)) {
 		return false;
 	}
+	glfwSetKeyCallback((GLFWwindow*)window->getter(), key_callback);
+	glfwSetInputMode((GLFWwindow*)window->getter(), GLFW_STICKY_KEYS, 1);
 	if (!renderer->Start(window)) {
 		return false;
 	}
@@ -51,4 +58,14 @@ void GameBase::loop()
 		renderer->SwapBuffer();
 		onUpdate(dt);
 	} while (res);
+}
+
+
+
+bool GameBase::input(int key) {
+	int state = glfwGetKey((GLFWwindow*)window->getter(), key);
+	if (state == GLFW_PRESS && state != lastState) {
+		return true;
+	}
+	return false;
 }

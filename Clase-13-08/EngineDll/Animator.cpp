@@ -9,7 +9,6 @@ Animator::Animator(Sprite* sprite) {
 }
 
 Animator::~Animator(){
-	delete _sprite;
 }
 
 //void Animator::SetAnimation(int firstFrame, int lastFrame, double speed) {

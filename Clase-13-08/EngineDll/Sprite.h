@@ -20,6 +20,7 @@ public:
 		_vertexUV[4] = u2; _vertexUV[5] = v2;
 		_vertexUV[6] = u2; _vertexUV[7] = v1;
 	}
+	float* GetFrame() { return _vertexUV; }
 };
 class ENGINEDLL_API Sprite :
 	public Shape
@@ -44,5 +45,6 @@ public:
 	void SetTextureVertex(float* vertex, int vertexCant);
 	void MakeFrames(int frameWidth, int frameHeight, int textureWidth, int textureHeight);
 	void SetFrame(int frame);
+	void SetUvVertex(float* uvVertex, int vertexCant);
 };
 
