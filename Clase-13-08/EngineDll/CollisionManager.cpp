@@ -66,7 +66,7 @@ void CollisionManager::Collision(BoxCollider* box1, BoxCollider* box2) {
 		float mass1P = CheckMass(box1->GetMass(), box2->GetMass(), 1);
 		float mass2P = CheckMass(box1->GetMass(), box2->GetMass(), 2);
 
-		cout << mass1P << " , " << mass2P<<endl;
+		//cout << mass1P << " , " << mass2P<<endl;
 
 		if (pX > pY) {
 			if (Diff.y > 0) {
@@ -83,13 +83,11 @@ void CollisionManager::Collision(BoxCollider* box1, BoxCollider* box2) {
 				}
 			}
 			if (box1->IsStatic()) {
-				//box2->GetEntity()->SetPos(box2->GetEntity()->GetPosX() - (pX / (0.1f*(float)mass2P)), box2->GetEntity()->GetPosY(), box2->GetEntity()->GetPosZ());
-				box2->GetEntity()->CanMove(false);
+				box2->GetEntity()->SetPos(box2->GetEntity()->GetPosX(), box2->GetEntity()->GetPosY() + (pY), box2->GetEntity()->GetPosZ());	
 				_colliding = true;
 			}
 			if (box2->IsStatic()) {
-				//box1->GetEntity()->SetPos(box1->GetEntity()->GetPosX() - (pX / (0.1f*(float)(mass2P)), box1->GetEntity()->GetPosY(), box1->GetEntity()->GetPosZ());
-				box1->GetEntity()->CanMove(false);
+				box1->GetEntity()->SetPos(box1->GetEntity()->GetPosX(), box2->GetEntity()->GetPosY() + (pY), box2->GetEntity()->GetPosZ());
 				_colliding = true;
 			}
 		}
@@ -108,13 +106,11 @@ void CollisionManager::Collision(BoxCollider* box1, BoxCollider* box2) {
 				}
 			}
 			if(box1->IsStatic()) {
-				box2->GetEntity()->SetPos(box2->GetEntity()->GetPosX() - (pX), box2->GetEntity()->GetPosY(), box2->GetEntity()->GetPosZ());
-				//box2->GetEntity()->CanMove(false);
+				box2->GetEntity()->SetPos(box2->GetEntity()->GetPosX() + (pX), box2->GetEntity()->GetPosY(), box2->GetEntity()->GetPosZ());
 				_colliding = true;
 			}
 			if (box2->IsStatic()) {
-				box1->GetEntity()->SetPos(box1->GetEntity()->GetPosX() - (pX), box1->GetEntity()->GetPosY(), box1->GetEntity()->GetPosZ());
-				//box1->GetEntity()->CanMove(false);
+				box1->GetEntity()->SetPos(box1->GetEntity()->GetPosX() + (pX), box1->GetEntity()->GetPosY(), box1->GetEntity()->GetPosZ());
 				_colliding = true;
 			}
 		}

@@ -2,11 +2,13 @@
 #include "Exports.h"
 #include "Include.h"
 #include "Sprite.h"
+#include "Include.h"
 #include <ctype.h>
 using namespace std;
 struct TileProperty {
 	int _tilenum;
 	float* _uvVertex;
+	bool _collide;
 };
 class ENGINEDLL_API TilemapManager
 {
@@ -40,11 +42,13 @@ public:
 	~TilemapManager();
 	void SetTilemap(const char* FILE);
 	void SetSprite(const char * BMPfile, int texWidth, int texHeight);
-	void SetTilesetProperty(int tileNum, int tileSprite);
+	void SetTilesetProperty(int tileNum, int tileSprite, bool collide);
 	void CreateTiles();
 	void CreateUV(int textureWidth, int textureHeight);
 	void Draw();
 	void SetPos(float x, float y, float z);
 	float GetPos(int axis);
+	int GetTile(int x, int y) { return _tilemap[x][y]; }
+	bool GetCollision(int tile) { return _properties[tile]._collide; }
 };
 

@@ -10,7 +10,6 @@ TilemapManager::TilemapManager(int width, int height, int tileSizeW, int tileSiz
 	_tileH = tileSizeH;
 	_tilesCant = tilesTypeCant;
 
-
 	_tileCol = _width / _tileW;
 	_tileRow = _height / _tileH;
 
@@ -88,8 +87,9 @@ void TilemapManager::SetSprite(const char * BMPfile, int texWidth, int texHeight
 	_mesh->SetMaterial(_mat);
 }
 
-void TilemapManager::SetTilesetProperty(int tileNum, int tileSprite) {
+void TilemapManager::SetTilesetProperty(int tileNum, int tileSprite, bool collide) {
 	_properties[tileNum]._tilenum = tileSprite;
+	_properties[tileNum]._collide = collide;
 }
 
 void TilemapManager::CreateTiles() {
@@ -123,7 +123,6 @@ void TilemapManager::CreateTiles() {
 				}
 				_cont += 3;
 			}
-			cout << _cont << endl;
 			_Y -= 1;
 			_looping = false;
 			break;
@@ -186,7 +185,7 @@ void TilemapManager::CreateUV(int textureWidth, int textureHeight) {
 				if (_tilemap[i][j] == -1) {
 					for (int k = 0; k < 8; k++)
 					{
-						_uvVertex[_cont + k] = -1.0f;
+						_uvVertex[_cont + k] = _frames[0].GetFrame()[k];
 					}
 					_cont += 8;
 				}
@@ -208,7 +207,7 @@ void TilemapManager::CreateUV(int textureWidth, int textureHeight) {
 			for (int j = 0; j < _tileCol; j++) {
 				for (int k = 0; k < 8; k++) {
 					if (_tilemap[i][j] == -1) {
-						_uvVertex[_cont + k] = -1.0f;
+						_uvVertex[_cont + k] = _frames[0].GetFrame()[k];
 					}
 					else {
 						_uvVertex[_cont + k] = _properties[_tilemap[i][j]]._uvVertex[k];
@@ -228,6 +227,7 @@ void TilemapManager::Draw() {
 void TilemapManager::SetPos(float x, float y, float z) {
 	_mesh->SetPos(x, y, z);
 }
+
 float TilemapManager::GetPos(int axis) {
 	switch (axis)
 	{

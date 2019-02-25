@@ -2589,7 +2589,7 @@ bool Game::onStart() {
 		23,50
 	};
 	_cris->SetAnimator(128, 128, 1024, 1024, _frames, 4, 5);
-	_cris->SetBoxCollider(5.0f, 5.0f, 1.0f, 0.0f, 0.0f, false);
+	_cris->SetBoxCollider(5.0f, 5.0f, 1.0f, 0.0f, 0.0f, true);
 
 	_cris2 = new Avatar(renderer);
 	_cris2->SetSprite(TEXTURE_A_CRISANIM_PATH);
@@ -2622,9 +2622,9 @@ bool Game::onStart() {
 	_ambulancia->SetScale(8, 8, 8);
 
 	_cris->SetSpriteScale(_scale, _scale, _scale);
-	_cris->SetSpritePos(-5.0f, -5.0f, 0.1f);
+	_cris->SetSpritePos(-5.0f, 5.0f, 0.1f);
 	_cris2->SetSpriteScale(_scale, _scale, _scale);
-	_cris2->SetSpritePos(5.0f, -5.0f, -0.1f);
+	//_cris2->SetSpritePos(-5.0f, -5.0f, -0.1f);
 
 	_collisionManager->AddEntity(_cris->GetBoxCollider(), 0);
 	_collisionManager->AddEntity(_cris2->GetBoxCollider(), 1);
@@ -2632,15 +2632,15 @@ bool Game::onStart() {
 	_tilemap = new TilemapManager(960,640,32,32,7,renderer);
 	_tilemap->SetTilemap(TILEMAP_PATH);
 
-	_tilemap->SetTilesetProperty(0, 0);
-	_tilemap->SetTilesetProperty(1, 1);
-	_tilemap->SetTilesetProperty(2, 3);
-	_tilemap->SetTilesetProperty(3, 4);
-	_tilemap->SetTilesetProperty(4, 5);
-	_tilemap->SetTilesetProperty(5, 8);
-	_tilemap->SetTilesetProperty(6, 2);
+	_tilemap->SetTilesetProperty(0, 1, true);
+	_tilemap->SetTilesetProperty(1, 2, true);
+	_tilemap->SetTilesetProperty(2, 3, true);
+	_tilemap->SetTilesetProperty(3, 4, true);
+	_tilemap->SetTilesetProperty(4, 6, false);
+	_tilemap->SetTilesetProperty(5, 9, false);
+	_tilemap->SetTilesetProperty(6, 5, false);
 	
-	_tilemap->SetSprite(TILESET_PATH, 96, 96);
+	_tilemap->SetSprite(TILESET_PATH, 96, 128);
 
 	return true;
 }
@@ -2648,7 +2648,7 @@ bool Game::onStart() {
 bool Game::onStop() {
 	std::cout << "game::stop()" << endl;
 	delete _sprite;
-	delete _square;
+//	delete _square;
 	delete _triangle;
 	delete _cris;
 	return true;
@@ -2712,5 +2712,5 @@ void Game::onDraw() {
 	_tilemap->Draw();
 	//_ambulancia->Draw();
 	//_cris2->DrawSprite();
-	//_cris->DrawSprite();
+	_cris->DrawSprite();
 }

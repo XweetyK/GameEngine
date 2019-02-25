@@ -10,7 +10,6 @@
 #include "../EngineDll/Circle.h"
 #include "../EngineDll/CollisionManager.h"
 #include "../EngineDll/TilemapManager.h"
-#include "GLFW\glfw3.h"
 using namespace std;
 class Game : public GameBase
 {
