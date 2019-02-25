@@ -9,7 +9,7 @@ Avatar::Avatar(Renderer* renderer){
 }
 
 Avatar::~Avatar(){
-	//delete _sprite;
+	delete _sprite;
 	delete _animator;
 	delete _boxCollider;
 }

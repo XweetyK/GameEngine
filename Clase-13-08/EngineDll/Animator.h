@@ -23,5 +23,6 @@ public:
 	void PlayAnimation();
 	void StopAnimation();
 	~Animator();
+	int* GetFrames() { return _frames; }
 };
 

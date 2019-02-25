@@ -227,6 +227,9 @@ void TilemapManager::Draw() {
 void TilemapManager::SetPos(float x, float y, float z) {
 	_mesh->SetPos(x, y, z);
 }
+void TilemapManager::SetScale(float x, float y, float z) {
+	_mesh->SetScale(x, y, z);
+}
 
 float TilemapManager::GetPos(int axis) {
 	switch (axis)

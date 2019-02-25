@@ -47,6 +47,7 @@ public:
 	void CreateUV(int textureWidth, int textureHeight);
 	void Draw();
 	void SetPos(float x, float y, float z);
+	void SetScale(float x, float y, float z);
 	float GetPos(int axis);
 	int GetTile(int x, int y) { return _tilemap[x][y]; }
 	bool GetCollision(int tile) { return _properties[tile]._collide; }

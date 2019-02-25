@@ -10,45 +10,47 @@
 #include "../EngineDll/Circle.h"
 #include "../EngineDll/CollisionManager.h"
 #include "../EngineDll/TilemapManager.h"
+#include "Player.h"
+#define TILESET_PATH "Assets/Level/Tileset.bmp"
+#define TILEMAP_PATH "Assets/Level/Level.oel"
+#define GEM_PATH "Assets/Level/Gems.bmp"
+#define WIN_PATH "Assets/Level/Winner.bmp"
+#define LOSE_PATH "Assets/Level/Loser.bmp"
+#define RED_PATH "Assets/level/LosingScreen.bmp"
+#define TUTO_PATH "Assets/level/Tutorial.bmp"
+
 using namespace std;
 class Game : public GameBase
 {
 private:
-	Shape* _triangle;
-	Material* _trgMat;
 
-	Square* _square;
-	Material* _sqrMat;
-
-	Circle* _circle;
-	Material* _cirMat;
-
-	Sprite* _sprite;
-	Material* _sprtTexture;
-
-	Sprite* _ambulancia;
-	Material* _ambTexture;
-
-	Avatar* _cris;
-	Avatar* _cris2;
+	Player* _player;
 
 	CollisionManager* _collisionManager;
 	TilemapManager* _tilemap;
 
+	Sprite* _winnerScreen;
+	Sprite* _loserScreen;
+	Material* _mat;
+	Sprite* _red;
+	Sprite* _red2;
+	Sprite* _tutorial;
 
-	float _trgVel;
-	float _sqrVel;
-	float _sprtVel;
-	float _trgRot;
-	float _sqrRot;
-	float _sprtMov;
-	float _pos;
-	float _scale;
+	Avatar* _gem;
 
-	//-------animation test-------
-	int* _damageFrames;
-	int* _punchFrames;
-	bool _activated;
+	float _gameTime;
+
+	int _x;
+	int _y;
+	int _originalPosX;
+	int _originalPosY;
+	float _timer;
+	int _mapLimitY;
+	int _mapLimitX;
+
+	int _gemCont;
+	bool _winner;
+
 
 protected:
 	bool onStart() override;
@@ -57,6 +59,7 @@ protected:
 	void onDraw() override;
 
 public:
+	void Camera(int x, int y);
 	Game();
 	~Game();
 	int _i;

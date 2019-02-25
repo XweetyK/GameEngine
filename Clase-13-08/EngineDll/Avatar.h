@@ -29,7 +29,11 @@ public:
 	void SetAnimatorFrames(int* frames, int framesCant, double speed);
 	void SetBoxCollider(float width, float height, float mass, float offsetX, float offsetY, bool staticness);
 	void UpdateAvatar(double deltatime, bool animated);
+	float GetPosX() { return _sprite->GetPosX(); }
+	float GetPosY() { return _sprite->GetPosY(); }
+	float GetPosZ() { return _sprite->GetPosZ(); }
 	BoxCollider* GetBoxCollider() { return _boxCollider; };
 	Sprite* GetSprite() { return _sprite; };
+	int* GetFrames() { return _animator->GetFrames(); }
 };
 
