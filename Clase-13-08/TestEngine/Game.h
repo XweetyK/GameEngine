@@ -40,10 +40,13 @@ private:
 
 	float _gameTime;
 
+	int _mapX;
+	int _mapY;
 	int _x;
 	int _y;
-	int _originalPosX;
-	int _originalPosY;
+	float _lastPosX;
+	float _lastPosY;
+
 	float _timer;
 	int _mapLimitY;
 	int _mapLimitX;
@@ -63,5 +66,9 @@ public:
 	Game();
 	~Game();
 	int _i;
+	void Input(double deltaTime);
+	void CheckWinner();
+	void GemMovement();
+	void AdjustUIPos();
 };
 

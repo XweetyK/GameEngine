@@ -37,6 +37,7 @@ public:
 	void LoadIMatrix();
 	void SetMMatrix(glm::mat4 mat);
 	void MultiplyMMatrix(glm::mat4 mat);
+	void CameraPos(int x, int y);
 	glm::mat4& GetMVP();
 };
 

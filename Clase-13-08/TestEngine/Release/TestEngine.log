@@ -1,4 +1,128 @@
 ﻿  Game.cpp
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Include.h(8): fatal error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Renderer.h(13): warning C4251: 'Renderer::_modelMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Renderer.h(14): warning C4251: 'Renderer::_viewMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Renderer.h(15): warning C4251: 'Renderer::_projectionMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Renderer.h(16): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Entity.h(11): warning C4251: 'Entity::_position': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_vec.hpp(229): note: see declaration of 'glm::vec<3,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Entity.h(12): warning C4251: 'Entity::_rotation': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_vec.hpp(229): note: see declaration of 'glm::vec<3,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Entity.h(13): warning C4251: 'Entity::_scale': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_vec.hpp(229): note: see declaration of 'glm::vec<3,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Entity.h(18): warning C4251: 'Entity::_modelMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Entity.h(19): warning C4251: 'Entity::_translateMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Entity.h(20): warning C4251: 'Entity::_rotMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Entity.h(21): warning C4251: 'Entity::_scaleMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\testengine\../EngineDll/CollisionManager.h(13): warning C4251: 'CollisionManager::_layers': class 'std::vector<std::list<BoxCollider *,std::allocator<_Ty>> *,std::allocator<std::list<_Ty,std::allocator<_Ty>>*>>' needs to have dll-interface to be used by clients of class 'CollisionManager'
+          with
+          [
+              _Ty=BoxCollider *
+          ]
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\testengine\../EngineDll/CollisionManager.h(13): note: see declaration of 'std::vector<std::list<BoxCollider *,std::allocator<_Ty>> *,std::allocator<std::list<_Ty,std::allocator<_Ty>>*>>'
+          with
+          [
+              _Ty=BoxCollider *
+          ]
+c:\users\diana\desktop\repos\gameengine\clase-13-08\testengine\../EngineDll/TilemapManager.h(19): warning C4251: 'TilemapManager::_tilesetFile': class 'std::basic_ifstream<char,std::char_traits<char>>' needs to have dll-interface to be used by clients of class 'TilemapManager'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\iosfwd(690): note: see declaration of 'std::basic_ifstream<char,std::char_traits<char>>'
+Game.cpp(105): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+Game.cpp(106): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+Game.cpp(141): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Game.cpp(151): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Game.cpp(161): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Game.cpp(171): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+Game.cpp(242): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+Game.cpp(243): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+Game.cpp(244): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+Game.cpp(245): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+Game.cpp(246): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
   main.cpp
-c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Include.h(8): fatal error C1083: Cannot open include file: 'glm/glm.hpp': No such file or directory
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Renderer.h(13): warning C4251: 'Renderer::_modelMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Renderer.h(14): warning C4251: 'Renderer::_viewMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Renderer.h(15): warning C4251: 'Renderer::_projectionMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Renderer.h(16): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Renderer'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Entity.h(11): warning C4251: 'Entity::_position': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_vec.hpp(229): note: see declaration of 'glm::vec<3,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Entity.h(12): warning C4251: 'Entity::_rotation': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_vec.hpp(229): note: see declaration of 'glm::vec<3,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Entity.h(13): warning C4251: 'Entity::_scale': struct 'glm::vec<3,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_vec.hpp(229): note: see declaration of 'glm::vec<3,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Entity.h(18): warning C4251: 'Entity::_modelMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Entity.h(19): warning C4251: 'Entity::_translateMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Entity.h(20): warning C4251: 'Entity::_rotMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\enginedll\Entity.h(21): warning C4251: 'Entity::_scaleMat': struct 'glm::mat<4,4,float,0>' needs to have dll-interface to be used by clients of class 'Entity'
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail/type_mat.hpp(303): note: see declaration of 'glm::mat<4,4,float,0>'
+c:\users\diana\desktop\repos\gameengine\clase-13-08\testengine\../EngineDll/CollisionManager.h(13): warning C4251: 'CollisionManager::_layers': class 'std::vector<std::list<BoxCollider *,std::allocator<_Ty>> *,std::allocator<std::list<_Ty,std::allocator<_Ty>>*>>' needs to have dll-interface to be used by clients of class 'CollisionManager'
+          with
+          [
+              _Ty=BoxCollider *
+          ]
+  c:\users\diana\desktop\repos\gameengine\clase-13-08\testengine\../EngineDll/CollisionManager.h(13): note: see declaration of 'std::vector<std::list<BoxCollider *,std::allocator<_Ty>> *,std::allocator<std::list<_Ty,std::allocator<_Ty>>*>>'
+          with
+          [
+              _Ty=BoxCollider *
+          ]
+c:\users\diana\desktop\repos\gameengine\clase-13-08\testengine\../EngineDll/TilemapManager.h(19): warning C4251: 'TilemapManager::_tilesetFile': class 'std::basic_ifstream<char,std::char_traits<char>>' needs to have dll-interface to be used by clients of class 'TilemapManager'
+  C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\include\iosfwd(690): note: see declaration of 'std::basic_ifstream<char,std::char_traits<char>>'
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __thiscall GameBase::input(int)" (__imp_?input@GameBase@@QAE_NH@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GameBase::~GameBase(void)" (__imp_??1GameBase@@QAE@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall GameBase::GameBase(void)" (__imp_??0GameBase@@QAE@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall Renderer::CameraPos(int,int)" (__imp_?CameraPos@Renderer@@QAEXHH@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall Entity::SetPos(float,float,float)" (__imp_?SetPos@Entity@@QAEXMMM@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall Entity::SetScale(float,float,float)" (__imp_?SetScale@Entity@@QAEXMMM@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: static class Material * __cdecl Material::LoadMaterial(char const *,char const *)" (__imp_?LoadMaterial@Material@@SAPAV1@PBD0@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall Avatar::SetBoxCollider(float,float,float,float,float,bool)" (__imp_?SetBoxCollider@Avatar@@QAEXMMMMM_N@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall Avatar::SetAnimator(int,int,int,int,int)" (__imp_?SetAnimator@Avatar@@QAEXHHHHH@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall Avatar::SetSpriteScale(float,float,float)" (__imp_?SetSpriteScale@Avatar@@QAEXMMM@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall Avatar::SetSpritePos(float,float,float)" (__imp_?SetSpritePos@Avatar@@QAEXMMM@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall Avatar::DrawSprite(void)" (__imp_?DrawSprite@Avatar@@QAEXXZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall Avatar::SetSprite(char const *)" (__imp_?SetSprite@Avatar@@QAEXPBD@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall Avatar::Avatar(class Renderer *)" (__imp_??0Avatar@@QAE@PAVRenderer@@@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: float __thiscall TilemapManager::GetPos(int)" (__imp_?GetPos@TilemapManager@@QAEMH@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall TilemapManager::SetScale(float,float,float)" (__imp_?SetScale@TilemapManager@@QAEXMMM@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall TilemapManager::SetPos(float,float,float)" (__imp_?SetPos@TilemapManager@@QAEXMMM@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall TilemapManager::Draw(void)" (__imp_?Draw@TilemapManager@@QAEXXZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall TilemapManager::SetTilesetProperty(int,int,bool)" (__imp_?SetTilesetProperty@TilemapManager@@QAEXHH_N@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall TilemapManager::SetSprite(char const *,int,int)" (__imp_?SetSprite@TilemapManager@@QAEXPBDHH@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall TilemapManager::SetTilemap(char const *)" (__imp_?SetTilemap@TilemapManager@@QAEXPBD@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall TilemapManager::TilemapManager(int,int,int,int,int,class Renderer *)" (__imp_??0TilemapManager@@QAE@HHHHHPAVRenderer@@@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall Shape::SetMaterial(class Material *)" (__imp_?SetMaterial@Shape@@QAEXPAVMaterial@@@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall Sprite::SetFrame(int)" (__imp_?SetFrame@Sprite@@QAEXH@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: unsigned int __thiscall Sprite::LoadBMP(char const *)" (__imp_?LoadBMP@Sprite@@QAEIPBD@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall Sprite::Sprite(class Renderer *)" (__imp_??0Sprite@@QAE@PAVRenderer@@@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall CollisionManager::UpdateCollider(void)" (__imp_?UpdateCollider@CollisionManager@@QAEXXZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall CollisionManager::AddEntity(class BoxCollider *,int)" (__imp_?AddEntity@CollisionManager@@QAEXPAVBoxCollider@@H@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall CollisionManager::CollisionManager(int)" (__imp_??0CollisionManager@@QAE@H@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __thiscall TilemapManager::GetCollision(int)" (__imp_?GetCollision@TilemapManager@@QAE_NH@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: int __thiscall TilemapManager::GetTile(int,int)" (__imp_?GetTile@TilemapManager@@QAEHHH@Z)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __thiscall CollisionManager::IsColliding(void)" (__imp_?IsColliding@CollisionManager@@QAE_NXZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class Sprite * __thiscall Avatar::GetSprite(void)" (__imp_?GetSprite@Avatar@@QAEPAVSprite@@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: class BoxCollider * __thiscall Avatar::GetBoxCollider(void)" (__imp_?GetBoxCollider@Avatar@@QAEPAVBoxCollider@@XZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: float __thiscall Avatar::GetPosY(void)" (__imp_?GetPosY@Avatar@@QAEMXZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: float __thiscall Avatar::GetPosX(void)" (__imp_?GetPosX@Avatar@@QAEMXZ)
+Game.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: float __thiscall Entity::GetPosZ(void)" (__imp_?GetPosZ@Entity@@QAEMXZ)
+main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall GameBase::loop(void)" (__imp_?loop@GameBase@@QAEXXZ)
+main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __thiscall GameBase::stop(void)" (__imp_?stop@GameBase@@QAE_NXZ)
+main.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: bool __thiscall GameBase::start(int,int,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> >)" (__imp_?start@GameBase@@QAE_NHHV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z)
+Player.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall Avatar::UpdateAvatar(double,bool)" (__imp_?UpdateAvatar@Avatar@@QAEXN_N@Z)
+Player.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall Avatar::SetAnimatorFrames(int *,int,double)" (__imp_?SetAnimatorFrames@Avatar@@QAEXPAHHN@Z)
+Player.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: void __thiscall Avatar::SetAnimator(int,int,int,int,int *,int,double)" (__imp_?SetAnimator@Avatar@@QAEXHHHHPAHHN@Z)
+Player.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: __thiscall Avatar::~Avatar(void)" (__imp_??1Avatar@@QAE@XZ)
+Player.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: int * __thiscall Avatar::GetFrames(void)" (__imp_?GetFrames@Avatar@@QAEPAHXZ)
+Player.obj : error LNK2001: unresolved external symbol "__declspec(dllimport) public: int * __thiscall Animator::GetFrames(void)" (__imp_?GetFrames@Animator@@QAEPAHXZ)
+C:\Users\Diana\Desktop\Repos\GameEngine\Clase-13-08\Release\NotBomberman.exe : fatal error LNK1120: 46 unresolved externals

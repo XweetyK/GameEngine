@@ -17,6 +17,10 @@ Player::Player(Renderer* rend){
 	_facingRt = new int[4]{
 		1, 2, 3, 4
 	};
+	_still = new int[1]{
+		0
+	};
+
 	_player->SetAnimator(32, 32, 128, 160, _facingRt, 4, 8);
 
 	_player->SetBoxCollider(1, 1, 5, 0, -0.3, false);
@@ -38,7 +42,7 @@ void Player::SetPos(float x, float y, float z) {
 	_player->SetSpritePos(x, y, z);
 }
 
-void Player::Movement(const char* facing, int x, int y){
+void Player::Movement(const char* facing, float x, float y){
 	_player->SetSpritePos(_player->GetPosX()+x, _player->GetPosY() + y, 0.0f);
 	if (facing == "up") {
 		if(_player->GetFrames() != _facingUp)
@@ -55,6 +59,9 @@ void Player::Movement(const char* facing, int x, int y){
 	if (facing == "right") {
 		if (_player->GetFrames() != _facingRt)
 		_player->SetAnimatorFrames(_facingRt, 4, 8);
+	}
+	if (facing == "still") {
+		_player->SetAnimatorFrames(_still, 1, 8);
 	}
 }
 

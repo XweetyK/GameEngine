@@ -41,7 +41,7 @@ bool GameBase::stop()
 void GameBase::loop() 
 {
 	bool res = true;
-	renderer->SetClearColor(0.7f, 1.0f, 0.5f, 1.0f);
+	renderer->SetClearColor(0.0f,0.0f,0.0f,1.0f);//(0.7f, 1.0f, 0.5f, 1.0f);
 	double timer = 0;
 	double lastTimer = 0;
 	double dt = 0;
