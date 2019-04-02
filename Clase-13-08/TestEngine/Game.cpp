@@ -14,6 +14,7 @@ bool Game::onStop() {
 	return true;
 }
 bool Game::onUpdate(double deltaTime) {
+	return true;
 }
 void Game::Camera(int x, int y) {
 }

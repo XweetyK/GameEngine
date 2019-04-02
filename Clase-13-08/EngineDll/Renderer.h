@@ -7,6 +7,7 @@
 class ENGINEDLL_API Renderer
 {
 private:
+	
 	Window* _window;
 	unsigned int _vertexArrayID;
 	unsigned int _colorVertexArrayID;
@@ -16,9 +17,12 @@ private:
 	glm::mat4 MVP;
 
 public:
+	enum Projection { ORTHO, PERSP };
+	Projection _projection;
+
 	Renderer();
 	~Renderer();
-	bool Start(Window* window);
+	bool Start(Window* window, Projection projection);
 	bool Stop();
 	void SetClearColor(float r, float g, float b, float a);
 	void ClearWindow();
@@ -38,6 +42,7 @@ public:
 	void SetMMatrix(glm::mat4 mat);
 	void MultiplyMMatrix(glm::mat4 mat);
 	void CameraPos(int x, int y);
+	void SetProjection(Projection projection);
 	glm::mat4& GetMVP();
 };
 

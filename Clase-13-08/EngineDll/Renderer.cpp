@@ -10,7 +10,7 @@ Renderer::~Renderer()
 {
 }
 
-bool Renderer::Start(Window* window) {
+bool Renderer::Start(Window* window, Projection projection) {
 	cout << "Renderer::start()" << endl;
 	_window = window;
 	glfwMakeContextCurrent((GLFWwindow*)_window->getter());
@@ -19,7 +19,9 @@ bool Renderer::Start(Window* window) {
 	}
 	glGenVertexArrays(1, &_vertexArrayID);
 	glBindVertexArray(_vertexArrayID);
-	_projectionMat = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 0.0f, 100.f);
+
+	_projection = projection;
+	SetProjection(_projection);
 
 	_viewMat = glm::lookAt(
 		glm::vec3(0, 0, 3),
@@ -169,4 +171,16 @@ void Renderer::CameraPos(int x, int y) {
 	);
 
 	UpdMVP();
+}
+void Renderer::SetProjection(Projection projection) {
+	switch (projection)
+	{
+	case ORTHO:
+		_projectionMat = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 0.0f, 100.f);
+		break;
+	case PERSP:
+		_projectionMat = glm::perspective(35.0f, 1.0f, 0.1f, 100.0f);
+
+		break;
+	}
 }

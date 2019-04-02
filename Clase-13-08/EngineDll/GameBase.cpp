@@ -22,7 +22,7 @@ bool GameBase::start(int alto, int ancho, string nombre)
 	}
 	glfwSetKeyCallback((GLFWwindow*)window->getter(), key_callback);
 	glfwSetInputMode((GLFWwindow*)window->getter(), GLFW_STICKY_KEYS, 1);
-	if (!renderer->Start(window)) {
+	if (!renderer->Start(window,renderer->ORTHO)) {
 		return false;
 	}
 
@@ -41,7 +41,7 @@ bool GameBase::stop()
 void GameBase::loop() 
 {
 	bool res = true;
-	renderer->SetClearColor(0.0f,0.0f,0.0f,1.0f);//(0.7f, 1.0f, 0.5f, 1.0f);
+	renderer->SetClearColor(0.7f, 1.0f, 0.5f, 1.0f);
 	double timer = 0;
 	double lastTimer = 0;
 	double dt = 0;
