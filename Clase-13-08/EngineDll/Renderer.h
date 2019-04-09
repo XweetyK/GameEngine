@@ -41,8 +41,9 @@ public:
 	void LoadIMatrix();
 	void SetMMatrix(glm::mat4 mat);
 	void MultiplyMMatrix(glm::mat4 mat);
-	void CameraPos(int x, int y);
+	void SetCamera(glm::mat4 viewMat);
 	void SetProjection(Projection projection);
 	glm::mat4& GetMVP();
+	glm::mat4 GetCamera() { return _viewMat; };
 };
 

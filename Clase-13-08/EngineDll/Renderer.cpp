@@ -163,13 +163,8 @@ void Renderer::MultiplyMMatrix(glm::mat4 mat) {
 glm::mat4& Renderer::GetMVP() {
 	return MVP;
 }
-void Renderer::CameraPos(int x, int y) {
-	_viewMat = glm::lookAt(
-		glm::vec3(x, y, 3),
-		glm::vec3(x, y, 0),
-		glm::vec3(0, 1, 0)
-	);
-
+void Renderer::SetCamera(glm::mat4 viewMat) {
+	_viewMat = viewMat;
 	UpdMVP();
 }
 void Renderer::SetProjection(Projection projection) {

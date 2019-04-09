@@ -10,13 +10,14 @@
 #include "../EngineDll/Circle.h"
 #include "../EngineDll/CollisionManager.h"
 #include "../EngineDll/TilemapManager.h"
+#include "../EngineDll/Camera.h"
 
 
 using namespace std;
 class Game : public GameBase
 {
 private:
-
+	
 
 protected:
 	bool onStart() override;
@@ -25,7 +26,10 @@ protected:
 	void onDraw() override;
 
 public:
-	void Camera(int x, int y);
+
+	Triangle* _tri;
+	Material* _mat;
+	Camera* _cam;
 	Game();
 	~Game();
 	int _i;
