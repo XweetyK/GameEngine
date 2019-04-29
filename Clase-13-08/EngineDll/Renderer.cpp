@@ -24,9 +24,9 @@ bool Renderer::Start(Window* window, Projection projection) {
 	SetProjection(_projection);
 
 	_viewMat = glm::lookAt(
-		glm::vec3(0, 0, 3),
-		glm::vec3(0, 0, 0),
-		glm::vec3(0, 1, 0)
+		glm::vec3(0, 0, 3), //eye
+		glm::vec3(0, 0, 0), //center
+		glm::vec3(0, 1, 0)	//up
 	);
 
 	_modelMat = glm::mat4(1.0f);
@@ -174,7 +174,7 @@ void Renderer::SetProjection(Projection projection) {
 		_projectionMat = glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, 0.0f, 100.f);
 		break;
 	case PERSP:
-		_projectionMat = glm::perspective(35.0f, 1.0f, 0.1f, 100.0f);
+		_projectionMat = glm::perspective(glm::radians(45.0f), (float)(1024)/(float)(800), 0.1f, 1000.0f);
 
 		break;
 	}

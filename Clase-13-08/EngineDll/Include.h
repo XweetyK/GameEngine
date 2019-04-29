@@ -19,4 +19,9 @@
 #define RIGHT_INPUT 262
 #define Z_INPUT 88
 #define X_INPUT 90
+#define W_INPUT 87
+#define A_INPUT 65
+#define S_INPUT 83
+#define D_INPUT 68
+
 using namespace std;

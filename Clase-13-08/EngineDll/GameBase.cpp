@@ -22,7 +22,7 @@ bool GameBase::start(int alto, int ancho, string nombre)
 	}
 	glfwSetKeyCallback((GLFWwindow*)window->getter(), key_callback);
 	glfwSetInputMode((GLFWwindow*)window->getter(), GLFW_STICKY_KEYS, 1);
-	if (!renderer->Start(window,renderer->ORTHO)) {
+	if (!renderer->Start(window,renderer->PERSP)) {
 		return false;
 	}
 

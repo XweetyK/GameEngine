@@ -32,6 +32,7 @@ public:
 	Camera* _cam;
 	Game();
 	~Game();
+	void Input(double deltaTime);
 	int _i;
 };
 
