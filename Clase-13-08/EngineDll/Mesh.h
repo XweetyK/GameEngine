@@ -19,31 +19,18 @@ protected:
 	float* _vertex;
 	unsigned int _bufferId;
 	int _vertexCant;
-
-	//Circle--------------------------
-	float _radio;
-	float _angulo;
-	float _grados;
-	int _triangleCant;
-	float* _color;
-
-	//Color---------------------------
-	float* _colorVertex;
-	unsigned int _colorBufferId;
-	int _colorVertexCant;
-
-	//Sprite--------------------------
-	float* _spriteVertex;
-	unsigned int _textureBufferId;
-	unsigned int _UVBufferId;
-	int _spriteVertexCant;
-
+	
+	//Index---------------------------
+	unsigned int* _index;
+	unsigned int _indexBufferId;
+	int _indexCant;
 
 public:
 	Mesh(Renderer * rend);
+	void Draw();
 	void Dispose(unsigned int bufferID, float* vertex);
 	void SetMaterial(Material* mat);
-	void SetVertex(float* vertex, int vertexCant);
+	void SetVertex(float* vertex, int vertexCant, unsigned int* index, int indexCant);
 
 	~Mesh();
 };

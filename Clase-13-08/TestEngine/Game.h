@@ -11,6 +11,7 @@
 #include "../EngineDll/CollisionManager.h"
 #include "../EngineDll/TilemapManager.h"
 #include "../EngineDll/Camera.h"
+#include "../EngineDll/Mesh.h"
 
 
 using namespace std;
@@ -28,6 +29,7 @@ protected:
 public:
 
 	Triangle* _tri;
+	Mesh* _mish;
 	Material* _mat;
 	Camera* _cam;
 	Game();

@@ -31,9 +31,12 @@ public:
 	void DestroyBuffer(unsigned int buffer);
 	void BindBuffer(unsigned int vertexBuffer, unsigned int atribId, unsigned int atribSize);
 	void DrawBuffer( int size, unsigned int drawStyle);
+	void DrawIndexBuffer(int size);
 	void DisableArray(unsigned int atribId);
 	unsigned int GenColorBuffer(float* buffer, int size);
 	unsigned int GenUVBuffer(float* buffer, int size);
+	unsigned int GenIndexBuffer(unsigned int* buffer, int size);
+	void Renderer::BindIndexBuffer(unsigned int indexBuffer);
 	//void DrawColorBuffer(unsigned int vertexBuffer, int size);
 	unsigned int GenTextureBuffer(unsigned int width, unsigned int height, unsigned char * data);
 	//void DrawTextureBuffer(unsigned int vertexBuffer, int size);

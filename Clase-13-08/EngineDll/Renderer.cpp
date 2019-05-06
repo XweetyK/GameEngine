@@ -68,6 +68,13 @@ unsigned int Renderer::GenBuffer(float* buffer, int size) {
 
 	return vertexbuffer;
 }
+unsigned int Renderer::GenIndexBuffer(unsigned int* buffer, int size) {
+	unsigned int indexbuffer;
+	glGenBuffers(1, &indexbuffer);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexbuffer);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
+	return indexbuffer;
+}
 unsigned int Renderer::GenUVBuffer(float* buffer, int size) {
 	GLuint uvbuffer;
 	glGenBuffers(1, &uvbuffer);
@@ -91,9 +98,15 @@ void Renderer::BindBuffer(unsigned int vertexBuffer, unsigned int atribId, unsig
 		(void*)0            // desfase del buffer
 	);
 }
+void Renderer::BindIndexBuffer(unsigned int indexBuffer) {
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, indexBuffer);
+}
 void Renderer::DrawBuffer(int size, unsigned int drawStyle) {
 	// Dibujar el triángulo !
 	glDrawArrays(drawStyle, 0, size); // Empezar desde el vértice 0S; 3 vértices en total -> 1 triángulo
+}
+void Renderer::DrawIndexBuffer(int size) {
+	glDrawElements(GL_TRIANGLES, size, GL_UNSIGNED_INT, (void*)0);
 }
 void Renderer::DisableArray(unsigned int atribId) {
 	glDisableVertexAttribArray(atribId);
@@ -105,18 +118,7 @@ unsigned int Renderer::GenColorBuffer(float* buffer, int size) {
 	glBufferData(GL_ARRAY_BUFFER, size, buffer, GL_STATIC_DRAW);
 	return colorbuffer;
 }
-/*void Renderer::DrawColorBuffer(unsigned int colorbuffer) {
-	glEnableVertexAttribArray(1);
-	glBindBuffer(GL_ARRAY_BUFFER, colorbuffer);
-	glVertexAttribPointer(
-		1,                                // Atributo. No hay razón especial para el 1, pero debe corresponder al número en el shader.
-		3,                                // tamaño
-		GL_FLOAT,                         // tipo
-		GL_FALSE,                         // normalizado?
-		0,                                // corrimiento
-		(void*)0                          // corrimiento de buffer
-	);
-}*/
+
 unsigned int Renderer::GenTextureBuffer(unsigned int width, unsigned int height, unsigned char * data) {
 // Creamos una textura OpenGL
 GLuint textureID;
