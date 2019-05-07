@@ -180,6 +180,7 @@ c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\renderer.h(16): 
   c:\users\administrador\desktop\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
 c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\renderer.h(17): warning C4251: 'Renderer::MVP': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
   c:\users\administrador\desktop\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+  Material.cpp
   Mesh.cpp
 c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\renderer.h(14): warning C4251: 'Renderer::_modelMat': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Renderer'
   c:\users\administrador\desktop\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
@@ -329,6 +330,7 @@ c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\entity.h(20): wa
   c:\users\administrador\desktop\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
 c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\entity.h(21): warning C4251: 'Entity::_scaleMat': struct 'glm::mat<4,4,float,0>' necesita tener una interfaz DLL para que la utilicen los clientes de class 'Entity'
   c:\users\administrador\desktop\gameengine\clase-13-08\external\glm-0.9.9.0\glm\detail\type_mat.hpp(303): note: vea la declaración de 'glm::mat<4,4,float,0>'
+  Window.cpp
   Generando código...
 c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\tilemapmanager.cpp(247): warning C4715: 'TilemapManager::GetPos': no todas las rutas de acceso de control devuelven un valor
 c:\users\administrador\desktop\gameengine\clase-13-08\enginedll\sprite.cpp(58): warning C4715: 'Sprite::LoadBMP': no todas las rutas de acceso de control devuelven un valor
