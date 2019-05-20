@@ -125,6 +125,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Level\Level.oel" />
+    <None Include="Shaders\ColorFragmentShader.cfs" />
+    <None Include="Shaders\ColorVertexShader.cvs" />
+    <None Include="Shaders\ModelFragmentShader.mfs" />
+    <None Include="Shaders\ModelVertexShader.mvs" />
+    <None Include="Shaders\SimpleFragmentShader.sfs" />
+    <None Include="Shaders\SimpleVertexShader.svs" />
+    <None Include="Shaders\TextureFragmentShader.tfs" />
+    <None Include="Shaders\TextureVertexShader.tvs" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

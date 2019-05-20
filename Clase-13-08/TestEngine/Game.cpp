@@ -43,6 +43,7 @@ bool Game::onStop() {
 	return true;
 }
 bool Game::onUpdate(double deltaTime) {
+
 	Input(deltaTime);
 	_cam->Update();
 	return true;

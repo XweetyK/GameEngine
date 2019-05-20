@@ -31,5 +31,29 @@
     <None Include="Assets\Level\Level.oel">
       <Filter>Archivos de recursos</Filter>
     </None>
+    <None Include="Shaders\TextureVertexShader.tvs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Shaders\ColorFragmentShader.cfs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Shaders\ColorVertexShader.cvs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Shaders\SimpleFragmentShader.sfs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Shaders\SimpleVertexShader.svs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Shaders\TextureFragmentShader.tfs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Shaders\ModelVertexShader.mvs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
+    <None Include="Shaders\ModelFragmentShader.mfs">
+      <Filter>Archivos de recursos</Filter>
+    </None>
   </ItemGroup>
 </Project>
