@@ -10,7 +10,6 @@
 class ENGINEDLL_API Mesh :
 	public Entity
 {
-public:
 protected:
 	bool _shouldDispose;
 	Material* _material;
@@ -25,12 +24,26 @@ protected:
 	unsigned int _indexBufferId;
 	int _indexCant;
 
+	//UVs-----------------------------
+	float* _uvs;
+
+	// Lectura de información del encabezado del archivo
+	unsigned char header[54]; // Each BMP file begins by a 54-bytes header
+	unsigned int dataPos;     // Position in the file where the actual data begins
+	unsigned int width, height;
+	unsigned int imageSize;   // = width*height*3
+							  // Información RGB
+	unsigned char * data;
+
+	unsigned int _image;
+
 public:
 	Mesh(Renderer * rend);
 	void Draw();
 	void Dispose(unsigned int bufferID, float* vertex);
 	void SetMaterial(Material* mat);
 	void SetVertex(float* vertex, int vertexCant, unsigned int* index, int indexCant);
+	void SetUv(float* uvs);
 
 	~Mesh();
 };

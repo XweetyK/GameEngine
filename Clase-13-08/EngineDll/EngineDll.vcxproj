@@ -29,6 +29,7 @@
     <ClInclude Include="Externals.h" />
     <ClInclude Include="GameBase.h" />
     <ClInclude Include="Exports.h" />
+    <ClInclude Include="ImporterMdl.h" />
     <ClInclude Include="Include.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Mesh.h" />
@@ -49,6 +50,7 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameBase.cpp" />
+    <ClCompile Include="ImporterMdl.cpp" />
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Renderer.cpp" />
