@@ -29,6 +29,7 @@ void Mesh::Draw() {
 			_material->Bind();
 			_material->SetMatrixProperty(renderer->GetMVP());
 		}
+		
 		renderer->BindBuffer(_bufferId, 0, 3);
 		renderer->BindIndexBuffer(_indexBufferId);
 		renderer->DrawIndexBuffer(_indexCant);

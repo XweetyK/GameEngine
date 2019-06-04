@@ -36,6 +36,10 @@ bool Game::onStart() {
 	_mish->SetVertex(_vertexmesh, 4, index, 6);
 	_mish->SetMaterial(_mat);
 
+	_importer = new ImporterMdl(renderer, MODEL_PATH);
+
+	_importer->GetMesh()->SetMaterial(_mat);
+
 	return true;
 }
 
@@ -49,8 +53,9 @@ bool Game::onUpdate(double deltaTime) {
 	return true;
 }
 void Game::onDraw() {
-	_tri->Draw();
-	_mish->Draw();
+	//_tri->Draw();
+	//_mish->Draw();
+	_importer->GetMesh()->Draw();
 }
 void Game::Input(double deltaTime) {
 	if (input(UP_INPUT)) {

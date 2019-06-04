@@ -13,6 +13,8 @@
 #define TEXTURE_FRG_SHADER_PATH "Shaders/TextureFragmentShader.tfs"
 #define TEXTURE_VERTEX_SHADER_PATH "Shaders/TextureVertexShader.tvs"
 
+#define MODEL_PATH "Assets/Cube/Cube.obj"
+
 #define UP_INPUT 265
 #define DOWN_INPUT 264
 #define LEFT_INPUT 263

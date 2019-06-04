@@ -12,7 +12,7 @@
 #include "../EngineDll/TilemapManager.h"
 #include "../EngineDll/Camera.h"
 #include "../EngineDll/Mesh.h"
-
+#include "../EngineDll/ImporterMdl.h"
 
 using namespace std;
 class Game : public GameBase
@@ -28,6 +28,7 @@ protected:
 
 public:
 
+	ImporterMdl* _importer;
 	Triangle* _tri;
 	Mesh* _mish;
 	Material* _mat;
