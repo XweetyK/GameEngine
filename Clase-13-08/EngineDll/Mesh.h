@@ -24,8 +24,11 @@ protected:
 	unsigned int _indexBufferId;
 	int _indexCant;
 
-	//UVs-----------------------------
+	//Texture-------------------------
 	float* _uvs;
+	unsigned int _textureBufferId;
+	unsigned int _UVBufferId;
+	int _textureCant;
 
 	// Lectura de información del encabezado del archivo
 	unsigned char header[54]; // Each BMP file begins by a 54-bytes header
@@ -41,8 +44,9 @@ public:
 	Mesh(Renderer * rend);
 	void Draw();
 	void Dispose(unsigned int bufferID, float* vertex);
+	unsigned int LoadBMP(const char * BMPfile);
 	void SetMaterial(Material* mat);
-	void SetVertex(float* vertex, int vertexCant, unsigned int* index, int indexCant);
+	void SetVertex(float* vertex, int vertexCant, unsigned int* index, int indexCant, float* uv, int uvCant);
 	void SetUv(float* uvs);
 
 	~Mesh();

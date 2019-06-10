@@ -13,6 +13,7 @@ bool Game::onStart() {
 	_cam->Start(renderer);
 
 	_mish = new Mesh(renderer);
+	_cube = new Mesh(renderer);
 	float* _vertexmesh = new float[12]{
 		-1.0f,-1.0f, 1.0f, // triangle 1 : begin
 		1.0f, -1.0f, 1.0f,
@@ -24,7 +25,7 @@ bool Game::onStart() {
 		2,3,0
 	};
 
-	_mat = Material::LoadMaterial(VERTEX_SHADER_PATH, FRG_SHADER_PATH);
+	_mat = Material::LoadMaterial(TEXTURE_VERTEX_SHADER_PATH, TEXTURE_FRG_SHADER_PATH);
 	_tri = new Triangle(renderer);
 	float* _vertices = new float[9]{
 		0.8f,-0.8f,0.0f,
@@ -33,12 +34,12 @@ bool Game::onStart() {
 	};
 	_tri->SetVertex(_vertices, 3);
 	_tri->SetMaterial(_mat);
-	_mish->SetVertex(_vertexmesh, 4, index, 6);
+	//_mish->SetVertex(_vertexmesh, 4, index, 6);
 	_mish->SetMaterial(_mat);
 
-	_importer = new ImporterMdl(renderer, MODEL_PATH);
+	_importer = new ImporterMdl(MODEL_PATH, _cube);
 
-	_importer->GetMesh()->SetMaterial(_mat);
+	_cube->SetMaterial(_mat);
 
 	return true;
 }
@@ -55,7 +56,7 @@ bool Game::onUpdate(double deltaTime) {
 void Game::onDraw() {
 	//_tri->Draw();
 	//_mish->Draw();
-	_importer->GetMesh()->Draw();
+	_cube->Draw();
 }
 void Game::Input(double deltaTime) {
 	if (input(UP_INPUT)) {

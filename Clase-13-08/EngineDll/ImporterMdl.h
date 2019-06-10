@@ -12,11 +12,15 @@ class ENGINEDLL_API ImporterMdl
 {
 private:
 	Mesh* _mesh;
-public:
-	ImporterMdl(Renderer* render, const char * ModelPath);
-	~ImporterMdl();
+	const aiScene* _scene;
 
-	void DrawMesh();
-	Mesh* GetMesh();
+	unsigned int _vertexCant;
+	unsigned int _indexCant;
+	unsigned int _uvCant;
+
+	void LoadValues();
+
+public:
+	ImporterMdl(const char * ModelPath, Mesh* mesh);
 };
 
