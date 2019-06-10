@@ -37,8 +37,8 @@ bool Renderer::Start(Window* window, Projection projection) {
 	// Aceptar el fragmento si está más cerca de la cámara que el fragmento anterior
 	glDepthFunc(GL_LESS);
 	// Transparency
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+	//glEnable(GL_BLEND);
+	//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 	return true;
 }
 
@@ -128,10 +128,10 @@ glGenTextures(1, &textureID);
 glBindTexture(GL_TEXTURE_2D, textureID);
 
 // Give the image to OpenGL
-glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_BGRA, GL_UNSIGNED_BYTE, data);
+glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_BGR, GL_UNSIGNED_BYTE, data);
 
 // OpenGL has now copied the data. Free our own version
-delete[] data;
+//delete[] data;
 
 // Poor filtering, or ...
 //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);

@@ -37,9 +37,10 @@ void ImporterMdl::LoadValues() {
 		_index[ind++] = _scene->mMeshes[0]->mFaces[i].mIndices[2];
 	}
 
-	float* _texture = new float[_uvCant];
+	float* _texture = new float[_uvCant * 2];
 	int tex = 0;
-	for (int i = 0; i < ((_uvCant/2)+2); i++)
+	
+	for (int i = 0; i < _uvCant; i++)
 	{
 		_texture[tex++] = _scene->mMeshes[0]->mTextureCoords[0][i].x;
 		_texture[tex++] = _scene->mMeshes[0]->mTextureCoords[0][i].y;

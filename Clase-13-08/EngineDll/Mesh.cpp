@@ -28,13 +28,16 @@ void Mesh::Draw() {
 		if (_material) {
 			_material->Bind();
 			_material->SetMatrixProperty(renderer->GetMVP());
+			_material->BindTexture(_textureBufferId);
 		}
 		
 		renderer->BindBuffer(_bufferId, 0, 3);
+		renderer->BindBuffer(_UVBufferId, 1, 2);
 		renderer->BindIndexBuffer(_indexBufferId);
 		renderer->DrawIndexBuffer(_indexCant);
 
 		renderer->DisableArray(0);
+		renderer->DisableArray(1);
 	}
 }
 void Mesh::Dispose(unsigned int bufferID, float* vertex) {
