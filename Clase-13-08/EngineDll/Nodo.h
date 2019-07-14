@@ -16,16 +16,17 @@ private:
 	glm::vec3 _scale;
 
 protected:
-	Renderer * renderer;
+	Renderer * _renderer;
 
 	glm::mat4 _modelMat;
 	glm::mat4 _translateMat;
 	glm::mat4 _rotMat;
 	glm::mat4 _scaleMat;
+
 	const char* _name;
 
 public:
-	Nodo(const char* name);
+	Nodo(Renderer* rend, const char* name);
 	~Nodo();
 
 	void SetName(const char* newName);
@@ -37,6 +38,16 @@ public:
 
 	void Draw();
 	void Update();
+
+	//Transformations-------------------------------------------------
+	void UpdModelMatrix();
+	void SetScale(float x, float y, float z);
+	void SetPos(float x, float y, float z);
+	void SetRot(float x, float y, float z);
+	float GetPosX() { return _position[0]; };
+	float GetPosY() { return _position[1]; };
+	float GetPosZ() { return _position[2]; };
+	glm::vec3 GetFullPos() { return _position; };
 
 };
 
