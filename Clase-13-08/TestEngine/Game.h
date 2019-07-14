@@ -13,6 +13,8 @@
 #include "../EngineDll/Camera.h"
 #include "../EngineDll/Mesh.h"
 #include "../EngineDll/ImporterMdl.h"
+#include "../EngineDll/Nodo.h"
+#include "../EngineDll/Component.h"
 
 using namespace std;
 class Game : public GameBase
@@ -27,6 +29,14 @@ protected:
 	void onDraw() override;
 
 public:
+
+	Nodo * _nodo;
+	Nodo * _noditoA;
+	Nodo * _noditoB;
+
+	Component * _component;
+	Component * _componentA;
+	Component * _componentB;
 
 	ImporterMdl* _importer;
 	Triangle* _tri;

@@ -2,8 +2,8 @@
 
 
 
-Component::Component()
-{
+Component::Component(const char* name){
+	_name = name;
 }
 
 

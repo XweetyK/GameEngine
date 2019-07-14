@@ -14,6 +14,35 @@ bool Game::onStart() {
 
 	//_mish = new Mesh(renderer);
 	_cube = new Mesh(renderer);
+	
+	_nodo= new Nodo("parent");
+	_noditoA= new Nodo("child a");
+	_noditoB= new Nodo("child b");
+
+	_component = new Component("parent");
+	_componentA = new Component("child a");
+	_componentB = new Component("child b");
+
+	_nodo->AddChild(_noditoA);
+	_nodo->AddChild(_noditoB);
+	_nodo->AddChild(_noditoA);
+
+	_nodo->RemoveChild("child a");
+	_nodo->RemoveChild("child z");
+	_nodo->RemoveChild("child b");
+	_nodo->RemoveChild("child a");
+
+	_nodo->AddComponent(_component);
+	_nodo->AddComponent(_componentA);
+	_nodo->AddComponent(_componentB);
+	_nodo->AddComponent(_componentA);
+
+	_nodo->RemoveComponent("child a");
+	_nodo->RemoveComponent("child z");
+	_nodo->RemoveComponent("child b");
+	_nodo->RemoveComponent("child a");
+	_nodo->RemoveComponent("parent");
+	_nodo->RemoveComponent("parent");
 
 	//float* _vertexmesh = new float[12]{
 	//	-1.0f,-1.0f, 1.0f, // triangle 1 : begin
