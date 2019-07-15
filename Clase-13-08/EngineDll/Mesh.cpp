@@ -2,7 +2,7 @@
 
 
 
-Mesh::Mesh(Renderer * rend) :Entity(rend) {
+Mesh::Mesh(Renderer * rend, const char* name) :Component(rend, name) {
 	_shouldDispose = false;
 	_vertex = NULL;
 	_bufferId = -1;
@@ -23,26 +23,26 @@ Mesh::~Mesh()
 }
 void Mesh::Draw() {
 	if (_shouldDispose) {
-		renderer->LoadIMatrix();
-		renderer->SetMMatrix(_modelMat);
+		_rend->LoadIMatrix();
+		_rend->SetMMatrix(*_modelMat);
 		if (_material) {
 			_material->Bind();
-			_material->SetMatrixProperty(renderer->GetMVP());
+			_material->SetMatrixProperty(_rend->GetMVP());
 			_material->BindTexture(_textureBufferId);
 		}
 		
-		renderer->BindBuffer(_bufferId, 0, 3);
-		renderer->BindBuffer(_UVBufferId, 1, 2);
-		renderer->BindIndexBuffer(_indexBufferId);
-		renderer->DrawIndexBuffer(_indexCant);
+		_rend->BindBuffer(_bufferId, 0, 3);
+		_rend->BindBuffer(_UVBufferId, 1, 2);
+		_rend->BindIndexBuffer(_indexBufferId);
+		_rend->DrawIndexBuffer(_indexCant);
 
-		renderer->DisableArray(0);
-		renderer->DisableArray(1);
+		_rend->DisableArray(0);
+		_rend->DisableArray(1);
 	}
 }
 void Mesh::Dispose(unsigned int bufferID, float* vertex) {
 	if (_shouldDispose) {
-		renderer->DestroyBuffer(bufferID);
+		_rend->DestroyBuffer(bufferID);
 		delete[] vertex;
 		_shouldDispose = false;
 	}
@@ -92,8 +92,8 @@ void Mesh::SetVertex(float* vertex, int vertexCant, unsigned int* index, int ind
 	_uvs = uv;
 	_textureCant = uvCant;
 
-	_bufferId = renderer->GenBuffer(_vertex, sizeof(float)* vertexCant * 3);
-	_indexBufferId = renderer->GenIndexBuffer(_index, sizeof(unsigned int)* indexCant);
-	_textureBufferId = renderer->GenTextureBuffer(width, height, data);
-	_UVBufferId = renderer->GenUVBuffer(_uvs, sizeof(float)* uvCant * 2);
+	_bufferId = _rend->GenBuffer(_vertex, sizeof(float)* vertexCant * 3);
+	_indexBufferId = _rend->GenIndexBuffer(_index, sizeof(unsigned int)* indexCant);
+	_textureBufferId = _rend->GenTextureBuffer(width, height, data);
+	_UVBufferId = _rend->GenUVBuffer(_uvs, sizeof(float)* uvCant * 2);
 }

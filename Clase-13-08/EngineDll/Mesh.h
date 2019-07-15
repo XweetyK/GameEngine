@@ -1,6 +1,5 @@
 #pragma once
-#include "Entity.h"
-#include "Material.h"
+#include "Component.h"
 #include "Exports.h"
 
 #define GL_TRIANGLES 0x0004
@@ -8,9 +7,10 @@
 #define GL_TRIANGLE_FAN 0x0006
 
 class ENGINEDLL_API Mesh :
-	public Entity
+	public Component
 {
 protected:
+
 	bool _shouldDispose;
 	Material* _material;
 
@@ -41,7 +41,7 @@ protected:
 	unsigned int _image;
 
 public:
-	Mesh(Renderer * rend);
+	Mesh(Renderer * rend, const char* name);
 	void Draw();
 	void Dispose(unsigned int bufferID, float* vertex);
 	unsigned int LoadBMP(const char * BMPfile);

@@ -4,7 +4,6 @@
 #include "Component.h"
 #include "glm\glm.hpp"
 #include "glm\gtc\matrix_transform.hpp"
-#include "Renderer.h"
 
 class ENGINEDLL_API Nodo {
 private:
@@ -16,7 +15,6 @@ private:
 	glm::vec3 _scale;
 
 protected:
-	Renderer * _renderer;
 
 	glm::mat4 _modelMat;
 	glm::mat4 _translateMat;
@@ -26,7 +24,7 @@ protected:
 	const char* _name;
 
 public:
-	Nodo(Renderer* rend, const char* name);
+	Nodo(const char* name);
 	~Nodo();
 
 	void SetName(const char* newName);

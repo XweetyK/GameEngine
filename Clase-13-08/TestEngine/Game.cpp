@@ -13,15 +13,15 @@ bool Game::onStart() {
 	_cam->Start(renderer);
 
 	//_mish = new Mesh(renderer);
-	_cube = new Mesh(renderer);
+	//_cube = new Mesh(renderer);
 	
-	_nodo= new Nodo(renderer, "parent");
-	_noditoA= new Nodo(renderer, "child a");
-	_noditoB= new Nodo(renderer, "child b");
+	_nodo= new Nodo("parent");
+	_noditoA= new Nodo("child a");
+	_noditoB= new Nodo("child b");
 
-	_component = new Component("parent");
-	_componentA = new Component("child a");
-	_componentB = new Component("child b");
+	_component = new Mesh(renderer, "parent");
+	_componentA = new Mesh(renderer, "child a");
+	_componentB = new Mesh(renderer, "child b");
 
 	_nodo->AddChild(_noditoA);
 	_nodo->AddChild(_noditoB);
@@ -67,14 +67,14 @@ bool Game::onStart() {
 		0.5f,-0.2f,0.0f,
 		0.2f,-0.8f,0.0f
 	};
-	_tri->SetVertex(_vertices, 3);
-	_tri->SetMaterial(_mat);
+	//_tri->SetVertex(_vertices, 3);
+	//_tri->SetMaterial(_mat);
 	//_mish->SetVertex(_vertexmesh, 4, index, 6);
 	//_mish->SetMaterial(_mat);
-	_cube->LoadBMP(CUBE_TEXTURE_PATH);
-	_importer = new ImporterMdl(MODEL_PATH, _cube);
+	_component->LoadBMP(CUBE_TEXTURE_PATH);
+	_importer = new ImporterMdl(MODEL_PATH, (Mesh*)_component);
 
-	_cube->SetMaterial(_mat);
+	_component->SetMaterial(_mat);
 
 	return true;
 }
@@ -91,7 +91,8 @@ bool Game::onUpdate(double deltaTime) {
 void Game::onDraw() {
 	//_tri->Draw();
 	//_mish->Draw();
-	_cube->Draw();
+	//_cube->Draw();
+	_component->Draw();
 }
 void Game::Input(double deltaTime) {
 	if (input(UP_INPUT)) {

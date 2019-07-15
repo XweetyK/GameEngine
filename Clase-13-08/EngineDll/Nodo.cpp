@@ -2,9 +2,8 @@
 
 
 
-Nodo::Nodo(Renderer* rend, const char* name){
+Nodo::Nodo(const char* name){
 	_name = name;
-	_renderer = rend;
 
 	_position[0] = _position[1] = _position[2] = 0.0f;
 	_rotation[0] = _rotation[1] = _rotation[2] = 0.0f;
@@ -65,6 +64,7 @@ void Nodo::AddComponent(Component* newComponent) {
 			return;
 		}
 	}
+	newComponent->SetModelMat(&_modelMat);
 	_component.push_back(newComponent);
 	cout << "Component added successfully." << endl;
 }
