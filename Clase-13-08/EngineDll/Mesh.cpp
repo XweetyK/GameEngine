@@ -23,8 +23,6 @@ Mesh::~Mesh()
 }
 void Mesh::Draw() {
 	if (_shouldDispose) {
-		_rend->LoadIMatrix();
-		_rend->SetMMatrix(*_modelMat);
 		if (_material) {
 			_material->Bind();
 			_material->SetMatrixProperty(_rend->GetMVP());

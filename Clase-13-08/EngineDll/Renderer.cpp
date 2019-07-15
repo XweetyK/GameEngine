@@ -169,6 +169,13 @@ void Renderer::SetCamera(glm::mat4 viewMat) {
 	_viewMat = viewMat;
 	UpdMVP();
 }
+void Renderer::SetMatrix(glm::mat4 model) {
+	_modelMat = model;
+	UpdMVP();
+}
+glm::mat4 Renderer::GetModel() {
+	return _modelMat;
+}
 void Renderer::SetProjection(Projection projection) {
 	switch (projection)
 	{

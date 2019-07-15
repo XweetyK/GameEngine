@@ -2,8 +2,9 @@
 
 
 
-Nodo::Nodo(const char* name){
+Nodo::Nodo(Renderer* rend, const char* name){
 	_name = name;
+	_rend = rend;
 
 	_position[0] = _position[1] = _position[2] = 0.0f;
 	_rotation[0] = _rotation[1] = _rotation[2] = 0.0f;
@@ -87,7 +88,15 @@ void Nodo::RemoveComponent(const char* toRemove) {
 }
 
 void Nodo::Draw() {
-	glm::mat4 myMat;
+	glm::mat4 myMat = _rend->GetModel();
+	_rend->MultiplyMMatrix(_modelMat);
+	for (int i = 0; i < _component.size(); i++){
+		_component[i]->Draw();
+	}
+	for (int i = 0; i < _childs.size(); i++){
+		_childs[i]->Draw();
+	}
+	_rend->SetMatrix(myMat);
 }
 
 //Transformations---------------------------------------

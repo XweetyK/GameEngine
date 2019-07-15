@@ -1,6 +1,7 @@
 #pragma once
 #include "Exports.h"
 #include "Include.h"
+#include "Renderer.h"
 #include "Component.h"
 #include "glm\glm.hpp"
 #include "glm\gtc\matrix_transform.hpp"
@@ -9,6 +10,7 @@ class ENGINEDLL_API Nodo {
 private:
 	vector<Nodo*> _childs;
 	vector<Component*> _component;
+	Renderer* _rend;
 
 	glm::vec3 _position;
 	glm::vec3 _rotation;
@@ -24,7 +26,7 @@ protected:
 	const char* _name;
 
 public:
-	Nodo(const char* name);
+	Nodo(Renderer* rend, const char* name);
 	~Nodo();
 
 	void SetName(const char* newName);
@@ -45,6 +47,10 @@ public:
 	float GetPosX() { return _position[0]; };
 	float GetPosY() { return _position[1]; };
 	float GetPosZ() { return _position[2]; };
+	
+	float GetRotX() { return _rotation[0]; };
+	float GetRotY() { return _rotation[1]; };
+	float GetRotZ() { return _rotation[2]; };
 	glm::vec3 GetFullPos() { return _position; };
 
 };

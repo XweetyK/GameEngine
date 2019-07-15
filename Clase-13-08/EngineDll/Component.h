@@ -13,6 +13,7 @@ protected:
 public:
 	Component(Renderer* rend, const char* name);
 	~Component();
+	void SetRenderer(Renderer* rend);
 
 	virtual void Draw() = 0;
 	virtual unsigned int LoadBMP(const char * BMPfile)=0;

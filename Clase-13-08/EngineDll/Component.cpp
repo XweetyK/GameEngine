@@ -12,6 +12,10 @@ Component::~Component()
 {
 }
 
+void Component::SetRenderer(Renderer* rend) {
+	_rend = rend;
+}
+
 void Component::SetName(const char* newName) {
 	_name = newName;
 }

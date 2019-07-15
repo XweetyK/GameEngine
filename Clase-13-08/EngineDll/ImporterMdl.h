@@ -7,6 +7,7 @@
 #include "Externals.h"
 #include "Mesh.h"
 #include "Renderer.h"
+#include "Nodo.h"
 
 class ENGINEDLL_API ImporterMdl
 {

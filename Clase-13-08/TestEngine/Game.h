@@ -39,9 +39,6 @@ public:
 	Component * _componentB;
 
 	ImporterMdl* _importer;
-	Triangle* _tri;
-	//Mesh* _mish;
-	Mesh* _cube;
 	Material* _mat;
 	Camera* _cam;
 	Game();
