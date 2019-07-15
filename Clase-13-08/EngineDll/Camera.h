@@ -1,9 +1,9 @@
 #pragma once
 #include "Exports.h"
 #include "Include.h"
-#include "Renderer.h"
+#include "Component.h"
 
-class ENGINEDLL_API Camera
+class ENGINEDLL_API Camera : public Component
 {
 private:
 
@@ -20,7 +20,7 @@ private:
 	
 
 public:
-	Camera();
+	Camera(Renderer * rend, const char* name);
 	~Camera();
 
 	void Start(Renderer * rend);

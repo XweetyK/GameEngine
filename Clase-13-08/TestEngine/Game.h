@@ -29,11 +29,14 @@ protected:
 	void onDraw() override;
 
 public:
-	Nodo * _nodo;
+	Nodo* _ROOT;
+
+	Nodo * _tankMesh;
+	Nodo* _camara;
+	Component* _camComp;
 
 	ImporterMdl* _importer;
 	Material* _mat;
-	Camera* _cam;
 	Game();
 	~Game();
 	void Input(double deltaTime);

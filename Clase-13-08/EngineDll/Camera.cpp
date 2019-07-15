@@ -1,8 +1,6 @@
 #include "Camera.h"
 
-
-
-Camera::Camera()
+Camera::Camera(Renderer * rend, const char* name) :Component(rend, name)
 {}
 Camera::~Camera()
 {}

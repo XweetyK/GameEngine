@@ -27,10 +27,9 @@ protected:
 
 public:
 	Nodo(Renderer* rend, const char* name);
-	Nodo();
+	//Nodo();
 	~Nodo();
 
-	void Initialize(Renderer* rend, const char* name);
 	void SetName(const char* newName);
 	const char* GetName() { return _name; }
 	void AddChild(Nodo* newChild);
