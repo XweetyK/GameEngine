@@ -43,11 +43,12 @@ protected:
 public:
 	Mesh(Renderer * rend, const char* name);
 	void Draw();
+	void Update() { return; };
 	void Dispose(unsigned int bufferID, float* vertex);
 	unsigned int LoadBMP(const char * BMPfile);
 	void SetMaterial(Material* mat);
 	void SetVertex(float* vertex, int vertexCant, unsigned int* index, int indexCant, float* uv, int uvCant);
-	void SetUv(float* uvs);
+	//void SetUv(float* uvs);
 
 	~Mesh();
 };

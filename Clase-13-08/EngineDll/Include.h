@@ -31,5 +31,9 @@
 #define A_INPUT 65
 #define S_INPUT 83
 #define D_INPUT 68
+#define I_INPUT 73
+#define J_INPUT 74
+#define K_INPUT 75
+#define L_INPUT 76
 
 using namespace std;

@@ -8,20 +8,28 @@
 #include "Mesh.h"
 #include "Renderer.h"
 #include "Nodo.h"
+#include "Component.h"
 
 class ENGINEDLL_API ImporterMdl
 {
 private:
-	Mesh* _mesh;
 	const aiScene* _scene;
+	Renderer* _rend;
 
-	unsigned int _vertexCant;
-	unsigned int _indexCant;
-	unsigned int _uvCant;
+	Nodo* _baseNodo;
+	Nodo* _prevNodo;
+
+	string* _bmps;
+
+	unsigned int _meshCant;
+	unsigned int* _vertexCant;
+	unsigned int* _indexCant;
+	unsigned int* _uvCant;
 
 	void LoadValues();
 
 public:
-	ImporterMdl(const char * ModelPath, Mesh* mesh);
+	ImporterMdl(Renderer* rend, const char * ModelPath, string* _textures);
+	Nodo* GetBaseNodo() { return _baseNodo; };
 };
 

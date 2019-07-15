@@ -29,14 +29,7 @@ protected:
 	void onDraw() override;
 
 public:
-
 	Nodo * _nodo;
-	Nodo * _noditoA;
-	Nodo * _noditoB;
-
-	Component * _component;
-	Component * _componentA;
-	Component * _componentB;
 
 	ImporterMdl* _importer;
 	Material* _mat;

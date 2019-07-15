@@ -27,14 +27,19 @@ protected:
 
 public:
 	Nodo(Renderer* rend, const char* name);
+	Nodo();
 	~Nodo();
 
+	void Initialize(Renderer* rend, const char* name);
 	void SetName(const char* newName);
 	const char* GetName() { return _name; }
 	void AddChild(Nodo* newChild);
 	void RemoveChild(const char* toRemove);
 	void AddComponent(Component* newComponent);
 	void RemoveComponent(const char* toRemove);
+
+	Nodo* GetChild(unsigned int index) { if (_childs.size() != 0) { return _childs[index]; } };
+	Component* GetComponent(unsigned int index) { if (_component.size() != 0) { return _component[index]; } };
 
 	void Draw();
 	void Update();
