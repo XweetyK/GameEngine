@@ -1,5 +1,6 @@
 #pragma once
 #include "Component.h"
+#include "BoundingBox.h"
 #include "Exports.h"
 
 #define GL_TRIANGLES 0x0004
@@ -13,6 +14,7 @@ protected:
 
 	bool _shouldDispose;
 	Material* _material;
+	BoundingBox* _bBox;
 
 	//Shape---------------------------
 	float* _vertex;
@@ -48,7 +50,7 @@ public:
 	void SetMaterial(Material* mat);
 	void SetVertex(float* vertex, int vertexCant, unsigned int* index, int indexCant, float* uv, int uvCant);
 	//void SetUv(float* uvs);
-
+	void SetBoundingBox(float* min, float* max);
 	~Mesh();
 };
 

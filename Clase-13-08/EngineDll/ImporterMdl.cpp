@@ -1,5 +1,6 @@
 #include "ImporterMdl.h"
-
+#include <numeric>
+using namespace std;
 ImporterMdl::ImporterMdl(Renderer* rend, const char * ModelPath, string* _textures) {
 
 	Assimp::Importer _importer;
@@ -45,11 +46,37 @@ void ImporterMdl::LoadValues() {
 		if (_prevNodo != NULL) { _prevNodo->AddChild(_nodo); }
 
 		float* _vertex = new float[_vertexCant[i] * 3];
+		
+		float* _max = new float[3]{-FLT_MAX,-FLT_MAX,-FLT_MAX};
+		float* _min = new float[3]{FLT_MAX, FLT_MAX, FLT_MAX};
+		
 		int ver = 0;
 		for (int j = 0; j < _vertexCant[i]; j++){
 			_vertex[ver++] = _scene->mMeshes[i]->mVertices[j].x;
 			_vertex[ver++] = _scene->mMeshes[i]->mVertices[j].y;
 			_vertex[ver++] = _scene->mMeshes[i]->mVertices[j].z;
+
+			//BoundingBox----------------------------------------
+			if (_scene->mMeshes[i]->mVertices[j].x>_max[0]){
+				_max[0] = _scene->mMeshes[i]->mVertices[j].x;
+			}
+			if (_scene->mMeshes[i]->mVertices[j].y>_max[1]){
+				_max[1] = _scene->mMeshes[i]->mVertices[j].y;
+			}
+			if (_scene->mMeshes[i]->mVertices[j].z>_max[2]){
+				_max[2] = _scene->mMeshes[i]->mVertices[j].z;
+			}
+			
+			if (_scene->mMeshes[i]->mVertices[j].x<_min[0]){
+				_min[0] = _scene->mMeshes[i]->mVertices[j].x;
+			}
+			if (_scene->mMeshes[i]->mVertices[j].y< _min[1]){
+				_min[1] = _scene->mMeshes[i]->mVertices[j].y;
+			}
+			if (_scene->mMeshes[i]->mVertices[j].z< _min[2]){
+				_min[2] = _scene->mMeshes[i]->mVertices[j].z;
+			}
+			//----------------------------------------------------
 		}
 
 		unsigned int* _index = new unsigned int[_indexCant[i]];
@@ -68,6 +95,7 @@ void ImporterMdl::LoadValues() {
 			_texture[tex++] = _scene->mMeshes[i]->mTextureCoords[0][j].y;
 		}
 		_comp->SetVertex(_vertex, _vertexCant[i], _index, _indexCant[i], _texture, _uvCant[i]);
+		_comp->SetBoundingBox(_min, _max);
 		_prevNodo = _nodo;
 	}
 }

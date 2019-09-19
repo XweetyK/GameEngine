@@ -25,6 +25,7 @@ public:
 	virtual unsigned int LoadBMP(const char * BMPfile) { return 0; };
 	virtual void SetMaterial(Material* mat) {};
 	virtual void SetVertex(float* vertex, int vertexCant, unsigned int* index, int indexCant, float* uv, int uvCant) {};
+	virtual void SetBoundingBox(float* min, float* max) {};
 
 	//Camera-----------------------
 	virtual void Start(Renderer * rend) {};

@@ -4,6 +4,7 @@
 
 Mesh::Mesh(Renderer * rend, const char* name) :Component(rend, name) {
 	_shouldDispose = false;
+	_bBox = new BoundingBox;
 	_vertex = NULL;
 	_bufferId = -1;
 	_material = NULL;
@@ -94,4 +95,19 @@ void Mesh::SetVertex(float* vertex, int vertexCant, unsigned int* index, int ind
 	_indexBufferId = _rend->GenIndexBuffer(_index, sizeof(unsigned int)* indexCant);
 	_textureBufferId = _rend->GenTextureBuffer(width, height, data);
 	_UVBufferId = _rend->GenUVBuffer(_uvs, sizeof(float)* uvCant * 2);
+}
+
+void Mesh::SetBoundingBox(float* min, float* max){
+	float* _vertex = new float[8 * 3]{
+	min[0], min[1], min[2],
+	min[0], min[1], max[2],
+	min[0], max[1], min[2],
+	min[0], max[1], max[2],
+	
+	max[0], max[1], min[2],
+	max[0], max[1], max[2],
+	max[0], min[1], min[2],
+	max[0], min[1], max[2],
+	};
+	_bBox->SetVertex(_vertex);
 }
