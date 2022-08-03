@@ -31,11 +31,13 @@ protected:
 public:
 	Nodo* _ROOT;
 
-	Nodo * _tankMesh;
+	Nodo * _cube;
 	Nodo* _camara;
+	Nodo* _tank;
 	Component* _camComp;
 
 	ImporterMdl* _importer;
+	ImporterMdl* _importerCube;
 	Material* _mat;
 	Game();
 	~Game();
